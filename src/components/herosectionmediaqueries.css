@@ -1,0 +1,239 @@
+@media screen and (max-width: 1500px) { 
+   .textoherosectionwrapper {
+    margin-left: 0;
+   }
+
+   .textoherosectionwrapper h2 {
+    width: 70%;
+   }
+}
+
+@media screen and (max-width: 1220px) { 
+    .textoherosectionwrapper h2 {
+        width: 100%;
+       }
+       .textoherosectionwrapper {
+        margin-left: 20px;
+       }
+       .textoherosectionwrapper > .slogan {
+        width: 70%;
+       }
+}
+@media screen and (max-width: 1095px) { 
+    
+       .textoherosectionwrapper > .slogan {
+        width: 80%;
+       }
+       .imagenherosection img {
+        width: 110%;
+       }
+}
+@media screen and (max-width: 960px) { 
+    
+       .textoherosectionwrapper > .slogan {
+        width: 90%;
+       }
+       .imagenherosection img {
+        width: 110%;
+       }
+
+       .textoherosectionwrapper h1 {
+        width: 70%;
+       }
+}
+@media screen and (max-width: 960px) { 
+       .textoherosectionwrapper h1 {
+        width: 80%;
+       }
+}
+@media screen and (max-width: 850px) { 
+    
+      .imagenfrutasdos {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 55%;
+        gap: 0;
+        margin-left: 18%;
+      }
+      .imagenherosection {
+        display: none;
+      }
+      .textoherosectionwrapper {
+        width: 100%;
+        margin: 0;
+        gap: 0;
+        height: 85vh;
+        justify-content: space-evenly;
+      }
+      .herosectionwrapper {
+        height: 90vh;
+      }
+      .background-image {
+        height: 100vh;
+        background-size: auto;
+      }
+}
+
+
+@media screen and (max-width: 820px) { 
+    .textoherosectionwrapper > .slogan {
+        width: 60%;
+       }
+   
+}
+@media screen and (max-width: 637px) { 
+    .textoherosectionwrapper > .slogan {
+        width: 70%;
+       }
+   
+}
+
+@media screen and (max-width: 599px) { 
+.textoherosectionwrapper h1 {
+    width: 60%;
+}
+
+.imagenfrutasdos {
+    width: 60%;
+    margin-left: 20%;
+}
+
+}
+@media screen and (max-width: 546px) { 
+    .textoherosectionwrapper > .slogan {
+        width: 90%;
+       }
+
+}
+@media screen and (max-width: 527px) { 
+    .textoherosectionwrapper h1 {
+        width: 65%;
+    }
+
+}
+@media screen and (max-width: 485px) { 
+    .textoherosectionwrapper h1 {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 450px) { 
+
+    .textoherosectionwrapper h2 {
+        font-size: 32px;
+    }
+
+    .textoherosectionwrapper > .slogan {
+        font-size: 32px;
+       }
+       .textoherosectionwrapper h1 {
+        width: 80%;
+    }
+
+}
+@media screen and (max-width: 395px) { 
+
+    .textoherosectionwrapper h2 {
+        width: 100%;
+
+        font-size: 30px;
+    }
+
+    .textoherosectionwrapper h1 {
+        width: 95%;
+    }
+    .textoherosectionwrapper {
+        width: 90%;
+        gap: 0;
+       }
+    
+       .herosectionwrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+       }
+  
+
+  
+}
+@media screen and (max-width: 380px) { 
+
+    .textoherosectionwrapper h2 {
+        width: 100%;
+
+        font-size: 30px;  
+  }
+
+  .textoherosectionwrapper > .slogan {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 370px) { 
+
+    .textoherosectionwrapper h1 {
+        width: 100%;
+  }
+    .textoherosectionwrapper h2 {
+        width: 100%;
+  }
+
+  
+}
+@media screen and (max-width: 352px) { 
+
+    .textoherosectionwrapper h1 {
+        width: 110%;
+    }
+
+}
+
+
+
+@media screen and (max-width: 340px) {
+    .textoherosectionwrapper h2 {
+        
+
+        font-size: 29px;
+    }
+
+    .textoherosectionwrapper > .slogan {
+        font-size: 29px;
+    }
+    .textoherosectionwrapper h1 {
+        width: 100%;
+        font-size: 28px;
+    }
+}  
+
+@media screen and (max-width: 309px) {
+    .textoherosectionwrapper h2 {
+        
+
+        font-size: 27px;
+    }
+
+    .textoherosectionwrapper > .slogan {
+        font-size: 27px;
+    }
+    .textoherosectionwrapper h1 {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 286px) {
+    .textoherosectionwrapper h2 {
+        
+
+        font-size: 25px;
+    }
+
+    .textoherosectionwrapper > .slogan {
+        font-size: 25px;
+    }
+    .textoherosectionwrapper h1 {
+        font-size: 23px;
+    }
+}
