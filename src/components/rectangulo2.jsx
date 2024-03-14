@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect } from 'react';
 import './rectangulo2.css';
 import { useState } from 'react';
