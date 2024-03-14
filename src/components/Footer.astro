@@ -1,0 +1,254 @@
+---
+import react from '@astrojs/react';
+import React, { useState } from 'react';
+import Isotipo from '../assets/ISOTIPO.png'
+import WhatsappRosa from '../assets/whatsapprosa.png'
+import EmailRosa from '../assets/emailrosa.png'
+import InstagramRosa from '../assets/instagramrosa.png'
+import Image from 'astro/components/Image.astro';
+---
+<footer class='footerwrapper'>
+    <div class="footer1">
+        <Image src={Isotipo} alt='Guillermo Fernández dietista nutricionista en Valencia'></Image>
+        <h3>Guillermo Fernández de la Torre</h3>
+        <div class="parrafowrapper">
+            <p style={{ fontStyle: 'italic', textAlign: 'center' }}>Transforma tu vida bocado a bocado.
+            </p>
+            <p>Como tu nutricionista, me comprometo a guiarte hacia un bienestar duradero con planes personalizados que se adaptan a tus necesidades y preferencias. Mi enfoque se centra en un camino sostenible hacia la salud, acompañándote en cada paso hacia tus metas de bienestar.</p>
+        </div>
+        <div class="linea">
+        </div>
+        <div class="contactlistwrapper">
+            <a href={"https://wa.me/34692747052"}>
+                <div class="iconoswrapper">
+                    <Image src={WhatsappRosa} alt='Guillermo Fernández dietista nutricionista en Valencia'></Image> 692747052
+                </div>
+            </a>
+            <a href={'mailto:jaimebillanueba@gmail.com'}>
+                <div class="iconoswrapper">
+                    <Image src={EmailRosa} alt='Guillermo Fernández dietista nutricionista en Valencia'></Image> jaimebillanueba99@gmail.com
+                </div>
+            </a>
+            <a href={'https://www.instagram.com/jaimevillalcon/'}>
+                <div class="iconoswrapper">
+                    <Image src={InstagramRosa} alt='Guillermo Fernández dietista nutricionista en Valencia'></Image> @jaimevillalcon
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="footer2">
+        <div class="footer2textowrapper">
+            <a href={'./page.js'}>Aviso Legal</a>
+            <a href={'./page.js'}>Política de privacidad</a>
+            <a href={'./page.js'}>Accesibilidad</a>
+        </div>
+        <div class="footer2textowrapper">
+            <p>© 2024, Guillermo Fernández de la Torre. </p>
+            <p>Todos los derechos reservados.</p>
+            <p>Diseño web Jaime Digital Studios.</p>
+        </div>
+    </div>
+</footer>
+
+<style>
+.footerwrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: black;
+    height: auto;
+    overflow-x: hidden;
+}
+
+.footer1 {
+    background-color: white;
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.footer1 img {
+    width: 90px;
+    height: auto;
+}
+
+.footer1 h3 {
+    font-family: 'Montserrat';
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 10px;
+    color: black;
+}
+
+.parrafowrapper {
+    width: 30%;
+}
+
+.parrafowrapper p {
+    font-family: 'Montserrat';
+    font-size: 15px;
+    font-weight: 200;
+    margin-top: 10px;
+    text-align: center;
+    color: black;
+}
+
+
+.linea {
+    margin-top: 40px;
+    width: 250px;
+    height: 6px;
+    background-color: rgb(242, 120, 109);
+    border-radius: 30px;
+}
+
+.contactlistwrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    width: 100%;
+    gap: 25px;
+    color: black;
+}
+
+.contactlistwrapper a {
+    text-decoration: none;
+    color: black;
+}
+
+.iconoswrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.iconoswrapper img {
+    width: 35px;
+}
+
+.footer2 {
+    background-color: black;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;    
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 80px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.footer2textowrapper p {
+    color: white;
+    font-size: 14px;
+    font-family: 'Montserrat';
+}
+
+.footer2textowrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;    
+    align-items: center;
+    gap: 20px;
+    margin: 0 10px;
+}
+
+.footer2textowrapper a {
+    color: white;
+    gap: 8px;
+    font-size: 14px;
+    font-family: 'Montserrat';
+    text-decoration: none;
+}
+
+.footer2textowrapper a:hover {
+    color: #f2786d;
+    border-bottom: #f2786d 1px solid;
+}
+
+@media screen and (max-width: 1275px) { 
+    .footer2 {
+        gap:25px;
+    }
+ }
+ 
+ @media screen and (max-width: 1220px) { 
+     .parrafowrapper {
+        width: 40%;
+        }
+ }
+ @media screen and (max-width: 1150px) { 
+     
+    .parrafowrapper {
+        width: 50%;
+        }
+ }
+ @media screen and (max-width: 1000px) { 
+     
+    .parrafowrapper {
+        width: 60%;
+        }
+ }
+ @media screen and (max-width: 900px) { 
+    .parrafowrapper {
+        width: 70%;
+        }
+ }
+ @media screen and (max-width: 810px) { 
+     
+       .footer2textowrapper {
+        width: 95%;
+        margin: 0;
+        gap: 10px;
+        flex-wrap: wrap;
+       }
+
+       .parrafowrapper {
+        width: 75%;
+        }
+ }
+ 
+ 
+ @media screen and (max-width: 750px) { 
+    .parrafowrapper {
+        width: 80%;
+        }
+ }
+ @media screen and (max-width: 690px) { 
+    .parrafowrapper {
+        width: 85%;
+        }
+    
+ }
+ 
+ @media screen and (max-width: 660px) { 
+ .contactlistwrapper {
+    flex-wrap: wrap;
+    width: fit-content;
+    margin-left: 5%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+ }
+ 
+ }
+ @media screen and (max-width: 560px) { 
+    .parrafowrapper p {
+        text-align: justify;
+        }
+ 
+ }
+</style>
