@@ -1,0 +1,286 @@
+---
+import Image from "astro/components/Image.astro";
+import Rectangulo2 from "./rectangulo2";
+import Rectangulo1 from "./rectangulo1.jsx";
+import react from "@astrojs/react";
+import SobreMiFoto from "../assets/guilleportada.png";
+
+---
+
+<div class="sobremiwrapper">
+    <div class="titulosectionwrapper">
+        <h2>Sobre mi.</h2>
+        <h3>Guillermo Fernández de la Torre</h3>
+    </div>
+    <div class="sectionwrapper">
+        <div class="textosobremiwrapper">
+            <div class="textosobremi">
+                <p>
+                    Guillermo Fernández de la Torre, dietista-nutricionista
+                    colegiado (CV1797), te da la bienvenida a su consulta. Con
+                    un enfoque en el bienestar integral, te brinda un
+                    acompañamiento cercano y personalizado, diseñando planes
+                    nutricionales adaptados a tus objetivos de salud y estilo de
+                    vida. Su amplia formación y experiencia en nutrición
+                    respaldan cada estrategia, fundamentada siempre en la
+                    evidencia científica.
+                </p>
+                <br />
+                <p>
+                    Como tu nutricionista, mi compromiso es guiarte hacia un
+                    bienestar duradero mediante planes nutricionales adaptados a
+                    tus necesidades y preferencias. Entiendo que la nutrición va
+                    más allá de lo que comemos, influyendo en nuestro bienestar
+                    general. Mi enfoque se centra en crear un camino
+                    personalizado y sostenible hacia la salud, acompañándote en
+                    cada paso hacia tus metas de salud y una vida satisfactoria.
+                </p>
+                <div class="sobremivermasbutton">VER MÁS</div>
+            </div>
+        </div>
+        <div class="imagenessobremiwrapper">
+            <div class="wrapperanimacion">
+                <Rectangulo1 client:load />
+                <Rectangulo2 client:load />
+                <Image
+                    src={SobreMiFoto}
+                    class="sobremiimagenperfil"
+                    alt="Guillermo Fernández dietista nutricionista en Valencia"
+                />
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .sobremiwrapper {
+        width: 100%;
+        display: flex;
+        height: auto;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 0rem;
+        margin-bottom: 10px;
+        overflow-x: hidden;
+        background-color: white;
+        margin-top: 150px;
+        
+    }
+
+    .sectionwrapper {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        align-items: center;
+        width: 100%;
+    }
+
+    .titulosectionwrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .titulosectionwrapper h2 {
+        font-size: 50px;
+        font-weight: 800;
+        font-family: "Montserrat";
+        color: rgb(171, 204, 185);
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .titulosectionwrapper h3 {
+        font-size: 35px;
+        font-weight: 400;
+        font-family: "Montserrat";
+        color: black;
+        margin: 0;
+    }
+
+    .textosobremiwrapper {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-end;
+        transform: translateX(-100px);
+        height: 100%;
+        padding-top: 60px;
+    }
+
+    .textosobremiwrapper p {
+        color: black;
+        text-align: justify;
+    }
+
+    .textosobremi {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imagenessobremiwrapper {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        position: relative;
+        transform: translateX(-100px);
+    }
+
+    .wrapperanimacion {
+        width: 90%;
+        height: 90%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        flex-direction: row;
+        position: relative;
+    }
+
+    .rectangulo1 {
+        width: 90%;
+        height: 90%;
+        background-color: rgba(243, 125, 115, 0.9);
+        z-index: 1;
+        position: absolute;
+        margin-left: 2rem;
+        border-radius: 20%;
+    }
+
+    .sobremiimagenperfil {
+        height: 100%;
+        width: 100%;
+        z-index: 3;
+    }
+
+    .sobremivermasbutton {
+        position: relative;
+        padding: 1rem;
+        background-color: #f37d73;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        width: fit-content;
+        margin-top: 20px;
+        transition:
+            background-color 0.7s,
+            color 2s;
+    }
+
+    .sobremivermasbutton:hover {
+        background-color: rgba(171, 204, 185, 1);
+        color: #fff;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 1275px) {
+   .wrapperanimacion {
+      width: 80%;
+      height: 80%;
+
+   }
+}
+
+@media screen and (max-width: 1100px) {
+     .wrapperanimacion {
+      width: 90%;
+      height:90%;
+
+   }
+}
+
+@media screen and (max-width: 1000px) {
+
+   .wrapperanimacion {
+      width: 100%;
+      height: 100%;
+   }
+}
+
+@media screen and (max-width: 900px) {
+
+   .sectionwrapper {
+      flex-direction: column-reverse;
+      justify-content: center;
+   }
+
+   .wrapperanimacion {
+      width: 50%;
+      height: 50%;
+   }
+
+   .imagenessobremiwrapper {
+      transform: translateX(-50px);
+      width: 100%;
+      height: 100%;
+   }
+
+   .textosobremiwrapper {
+      transform: translateX(0px);
+      width: 80%;
+   }
+
+   .textosobremi {
+      width: 100%;
+   }
+}
+
+@media screen and (max-width: 750px) {
+   .wrapperanimacion {
+      width: 75%;
+      height: 75%;
+   }
+   .titulosectionwrapper {
+      width: 90%;
+      text-align: center;
+   }
+}
+
+@media screen and (max-width: 600px) {
+
+   .textosobremi p {
+      font-size: 18px;
+   }
+
+   .wrapperanimacion {
+      width: 80%;
+      height: 80%;
+   }
+}
+
+
+@media screen and (max-width: 470px) {
+   .wrapperanimacion {
+      width: 85%;
+      height: 85%;
+   }
+}
+
+@media screen and (max-width: 350px) {
+   .titulosectionwrapper h2 {
+      font-size: 40px;
+   }
+
+   .titulosectionwrapper h3 {
+      font-size: 27px;
+   }
+
+}
+
+@media screen and (max-width: 320px) {
+   .textosobremi p {
+      font-size: 17px;
+   }
+
+}
+</style>

@@ -1,0 +1,16 @@
+
+
+.rectangulo2 {
+    width: 90%;
+    height: 90%;
+    background-color: rgba(171, 204, 185, 1);
+    z-index: 1;
+    position: absolute;
+    margin-left: 2rem;
+
+    border-radius: 20%;
+}
+
+
+
+

@@ -2,11 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import HeroSection from '../components/HeroSection.astro';
+import SobreMi from '../components/SobreMi.astro';
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
 		<HeroSection />
+		<SobreMi client:load />
 	</main>
 </Layout>
 
