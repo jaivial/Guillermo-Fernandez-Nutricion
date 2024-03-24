@@ -247,7 +247,11 @@ import Icon3 from "../assets/icon3.png";
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Function to check if an element is in viewport
-        function isInViewport(element: Element | null) {
+        function isInViewport(element: Element | null): boolean {
+            if (element === null) {
+                return false;
+            }
+
             var rect = element.getBoundingClientRect();
             return (
                 rect.top >= 0 &&
