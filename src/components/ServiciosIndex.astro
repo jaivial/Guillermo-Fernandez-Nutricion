@@ -203,12 +203,12 @@ import Icon3 from "../assets/icon3.png";
             margin: 20px 35px;
         }
     }
-    @media screen and (max-width: 420px) { 
+    @media screen and (max-width: 420px) {
         .rectangulo {
             margin: 20px 25px;
         }
     }
-    @media screen and (max-width: 360px) { 
+    @media screen and (max-width: 360px) {
         .rectangulo {
             margin: 20px 20px;
         }
@@ -230,7 +230,7 @@ import Icon3 from "../assets/icon3.png";
             height: auto;
         }
     }
-    @media screen and (max-width: 290px) { 
+    @media screen and (max-width: 290px) {
         .textorectangulowrapper h3 {
             font-size: 20px;
         }
@@ -247,7 +247,7 @@ import Icon3 from "../assets/icon3.png";
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Function to check if an element is in viewport
-        function isInViewport(element) {
+        function isInViewport(element: Element | null) {
             var rect = element.getBoundingClientRect();
             return (
                 rect.top >= 0 &&
@@ -266,9 +266,13 @@ import Icon3 from "../assets/icon3.png";
             if (isInViewport(wrapper)) {
                 var cards = document.querySelectorAll(".rectangulo");
                 cards.forEach(function (card, index) {
-                    // Calculate transition delay based on index
-                    var delay = (index + 1) * 700; // 1000 milliseconds = 1 second
-                    card.style.transitionDelay = delay + "ms";
+                    if (card instanceof HTMLElement) {
+                        const delay = 100; // Supongamos que delay es un valor válido
+                        card.style.transitionDelay = delay + "ms";
+                    } else {
+                        // Manejar el caso en el que getElementById no devuelve un HTMLElement
+                        console.error("El elemento no es un HTMLElement");
+                    }
                     card.classList.add("animated");
                 });
             }
