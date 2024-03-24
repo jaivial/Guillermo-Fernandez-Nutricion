@@ -21,7 +21,7 @@ app.use(cors(corsOptions));
 
 // Define a route handler for the "/send-email" endpoint
 app.route('/send-email')
-  .get((req, res) => {
+  .get((res) => {
     // Handle GET requests for /send-email
     res.send('GET request received for /send-email');
   })
@@ -61,7 +61,7 @@ app.route('/send-email')
         `,
       };
 
-      transporter.sendMail(mailOptions, (error, info) => {
+      transporter.sendMail(mailOptions, (error) => {
         if (error) {
           console.error('Error sending email:', error);
           return res.status(500).json({ error: 'Failed to send email' });
