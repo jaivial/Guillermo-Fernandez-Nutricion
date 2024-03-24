@@ -66,7 +66,7 @@ app.route('/send-email')
           console.error('Error sending email:', error);
           return res.status(500).json({ error: 'Failed to send email' });
         }
-<
+
         // Send a success response
         res.status(200).json({ message: 'Email sent successfully' });
       });
@@ -81,4 +81,3 @@ app.route('/send-email')
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-<
