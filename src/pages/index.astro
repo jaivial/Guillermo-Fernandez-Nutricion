@@ -3,16 +3,23 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import HeroSection from '../components/HeroSection.astro';
 import SobreMi from '../components/SobreMi.astro';
+import ServiciosIndex from '../components/ServiciosIndex.astro';
+import Contacto from '../components/Contacto.astro';
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
 		<HeroSection />
 		<SobreMi />
+		<ServiciosIndex />
+		<Contacto />
 	</main>
 </Layout>
 
 <style>
+	body {
+		overflow-x: hidden;
+	}
 	main {
 		
 		width: 100%;
@@ -23,7 +30,6 @@ import SobreMi from '../components/SobreMi.astro';
 		background-color: white;
 		font-size: 20px;
 		line-height: 1.6;
-		margin-bottom: 200px;
 	}
 	.astro-a {
 		position: absolute;
@@ -34,13 +40,7 @@ import SobreMi from '../components/SobreMi.astro';
 		height: auto;
 		z-index: -1;
 	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
+
 	.text-gradient {
 		background-image: var(--accent-gradient);
 		-webkit-background-clip: text;

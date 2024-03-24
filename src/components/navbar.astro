@@ -2,6 +2,7 @@
 import react from "@astrojs/react";
 import { Image } from "astro:assets";
 import Logo from "../assets/LogoNombre2.png";
+import Isotipo from "../assets/ISOTIPO.png";
 import Arrow from "../assets/arrow.svg";
 import ArrowRosa from "../assets/arrowrosa.svg";
 import SideBarMenu from "../components/SideNavBar.jsx";
@@ -13,6 +14,11 @@ import SideBarMenu from "../components/SideNavBar.jsx";
         <Image
             src={Logo}
             class="logonavbar"
+            alt="Guillermo Fernández dietista nutricionista en Valencia"
+        />
+        <Image
+            src={Isotipo}
+            class="logonavbar_2"
             alt="Guillermo Fernández dietista nutricionista en Valencia"
         />
     </div>
@@ -82,9 +88,13 @@ import SideBarMenu from "../components/SideNavBar.jsx";
     }
 
     .logo img {
-        height: 75%;
+        height: 70%;
         width: auto;
     }
+
+    .logonavbar_2 {
+        display: none;
+    } 
 
     .links {
         display: flex;
@@ -311,18 +321,19 @@ import SideBarMenu from "../components/SideNavBar.jsx";
         }
 
         .logo {
-            width: 100%;
             height: 100%;
+            width: 100%;
             justify-content: center;
             align-items: center;
             display: flex;
             padding: 0;
+            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .logo img {
             padding: 0;
-            height: 95%;
-            width: auto;
+            height: 65%;
             margin-right: 20px;
         }
     }
@@ -332,28 +343,19 @@ import SideBarMenu from "../components/SideNavBar.jsx";
             justify-content: flex-start;
             align-items: center;
         }
-
-        .logo {
-            width: 100%;
-            justify-content: center;
-            margin: 0;
-            align-items: center;
-            display: flex;
-
-        }
-
-        .logo img {
-            width: 90%;
-            height: auto;;
-        }
-
+ 
         .logonavbar {
+            display: none;
+        }
+
+        .logonavbar_2 {
             width: auto;
             height: auto;
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
+            margin-right: 20px;
         }
     }
 
@@ -361,15 +363,8 @@ import SideBarMenu from "../components/SideNavBar.jsx";
         .navbar {
             padding: 0;
         }
-        .logo {
-            width: 100%;
-            height: auto;
-        }
-
-        .logo img {
-            width: 95%;
-            height: auto;
-        }
+     
+       
     }
 
     @media screen and (max-width: 385px) {

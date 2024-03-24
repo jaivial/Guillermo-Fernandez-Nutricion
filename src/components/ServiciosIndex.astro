@@ -1,0 +1,283 @@
+---
+import Image from "astro/components/Image.astro";
+import react from "@astrojs/react";
+import Icon1 from "../assets/icon1.png";
+import Icon2 from "../assets/icon2.png";
+import Icon3 from "../assets/icon3.png";
+---
+
+<div class="wrapperservicios" id="servicios">
+    <div class="wrappertituloservicios">
+        <h2>SERVICIOS EN NUTRICIÓN</h2>
+        <h3>Online y Presencial</h3>
+    </div>
+
+    <div class="wrapperrectangulosservicios">
+        <div class="rectangulo">
+            <Image
+                class="imageservicios"
+                src={Icon1}
+                alt="Guillermo Fernández dietista nutricionista en Valencia"
+            />
+            <div class="textorectangulowrapper">
+                <h3>Nutrición Clínica</h3>
+                <p>Revitaliza tu salud con soluciones personalizadas.</p>
+                <p>Estrategia integral para cada condición.</p>
+                <p>Consejería detallada y apoyo continuo.</p>
+            </div>
+            <div class="vermasserviciosbutton">VER MÁS</div>
+        </div>
+
+        <div class="rectangulo">
+            <Image
+                class="imageservicios"
+                src={Icon2}
+                alt="Guillermo Fernández dietista nutricionista en Valencia"
+            />
+            <div class="textorectangulowrapper">
+                <h3>Pérdida De Peso</h3>
+                <p>Transformación de rutinas alimentarias.</p>
+                <p>Creando un equilibrio nutritivo.</p>
+                <p>Soporte en cada paso.</p>
+            </div>
+            <div class="vermasserviciosbutton">VER MÁS</div>
+        </div>
+        <div class="rectangulo">
+            <Image
+                class="imageservicios"
+                src={Icon3}
+                alt="Guillermo Fernández dietista nutricionista en Valencia"
+            />
+            <div class="textorectangulowrapper">
+                <h3>Nutrición Deportiva</h3>
+                <p>Maximizando tu máximo nivel deportivo.</p>
+                <p>Especialización en diferentes deportes.</p>
+                <p>Estrategias personalizadas.</p>
+            </div>
+            <div class="vermasserviciosbutton">VER MÁS</div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .wrapperservicios {
+        width: 100%;
+        height: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-x: hidden;
+        padding: 60px 0px;
+    }
+
+    .wrappertituloservicios {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        width: 90%;
+    }
+
+    .wrapperservicios h2 {
+        font-size: 50px;
+        font-weight: 800;
+        font-family: "Montserrat";
+        color: rgb(171, 204, 185);
+        text-transform: uppercase;
+        margin: 0;
+        text-align: center;
+    }
+
+    .wrapperservicios h3 {
+        font-size: 35px;
+        font-weight: 400;
+        font-family: "Montserrat";
+        color: black;
+        margin: 0;
+        text-align: center;
+    }
+
+    .wrapperrectangulosservicios {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .rectangulo {
+        border: 5px rgb(242, 120, 109, 0.7) solid;
+        width: 350px;
+        height: 500px;
+        border-radius: 16%;
+        margin: 0 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 40px;
+        padding: 20px;
+    }
+
+    .imageservicios {
+        width: 125px;
+        height: auto;
+    }
+
+    .textorectangulowrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 0 0px;
+    }
+
+    .textorectangulowrapper h3 {
+        font-family: "Montserrat";
+        font-weight: 600;
+        font-size: 28px;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+
+    .textorectangulowrapper p {
+        margin-top: 10px;
+        font-family: "Montserrat";
+        font-size: 16px;
+        text-align: center;
+        color: black;
+    }
+
+    .vermasserviciosbutton {
+        position: relative;
+        padding: 1rem;
+        background-color: #f37d73;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        width: fit-content;
+    }
+
+    .vermasserviciosbutton:hover {
+        background-color: rgba(171, 204, 185, 1);
+        color: #fff;
+        cursor: pointer;
+        transition: 0.4s;
+    }
+
+    /* ANIMTATIONS */
+    .rectangulo {
+        opacity: 0;
+        transform: translateX(100%);
+        transition:
+            opacity 2s ease-in-out,
+            transform 2s ease-in-out;
+    }
+
+    .rectangulo.animated {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+
+    @media screen and (max-width: 470px) {
+        .wrappertituloservicios h2 {
+            font-size: 40px;
+        }
+        .wrappertituloservicios h3 {
+            font-size: 30px;
+        }
+
+        .wrapperrectangulosservicios {
+            width: 100%;
+        }
+        .rectangulo {
+            margin: 20px 35px;
+        }
+    }
+    @media screen and (max-width: 420px) { 
+        .rectangulo {
+            margin: 20px 25px;
+        }
+    }
+    @media screen and (max-width: 360px) { 
+        .rectangulo {
+            margin: 20px 20px;
+        }
+    }
+    @media screen and (max-width: 340px) {
+        .textorectangulowrapper h3 {
+            font-size: 25px;
+        }
+        .textorectangulowrapper p {
+            font-size: 16px;
+        }
+        .wrappertituloservicios h2 {
+            font-size: 35px;
+        }
+        .wrappertituloservicios h3 {
+            font-size: 25px;
+        }
+        .rectangulo {
+            height: auto;
+        }
+    }
+    @media screen and (max-width: 290px) { 
+        .textorectangulowrapper h3 {
+            font-size: 20px;
+        }
+    }
+    @media screen and (max-width: 290px) {
+        .wrappertituloservicios h2 {
+            font-size: 30px;
+        }
+        .wrappertituloservicios h3 {
+            font-size: 20px;
+        }
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Function to check if an element is in viewport
+        function isInViewport(element) {
+            var rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <=
+                    (window.innerHeight ||
+                        document.documentElement.clientHeight) &&
+                rect.right <=
+                    (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Function to handle scroll event
+        function handleScroll() {
+            var wrapper = document.querySelector(".wrappertituloservicios");
+            if (isInViewport(wrapper)) {
+                var cards = document.querySelectorAll(".rectangulo");
+                cards.forEach(function (card, index) {
+                    // Calculate transition delay based on index
+                    var delay = (index + 1) * 700; // 1000 milliseconds = 1 second
+                    card.style.transitionDelay = delay + "ms";
+                    card.classList.add("animated");
+                });
+            }
+        }
+
+        // Initial check on page load
+        handleScroll();
+
+        // Listen for scroll event
+        window.addEventListener("scroll", handleScroll);
+    });
+</script>

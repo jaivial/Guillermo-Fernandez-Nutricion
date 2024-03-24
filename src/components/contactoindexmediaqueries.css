@@ -1,0 +1,142 @@
+@media screen and (max-width: 1275px) { 
+   .titulocontactoindex {
+    width: 90%;
+    text-align: center;
+   }
+ }
+ 
+ @media screen and (max-width: 1220px) { 
+    .titulocontactoindex {
+        width: 80%;
+       }
+ }
+ @media screen and (max-width: 1000px) { 
+    .dottedline {
+        left: -3%;
+        top: 250px;
+    }
+ }
+ @media screen and (max-width: 850px) { 
+     form {
+        width: 60%;
+     }
+
+     .email, .serviciotelefonowrapper, .nombreapellidoswrapper, .motivoconsultawrapper {
+        width: 100%;
+    }
+   .email input {
+        width: 100%;
+    }
+    .nombreapellidoswrapper {
+        flex-direction: column;
+    }
+
+    .nombreapellidoswrapper input {
+        width: -webkit-fill-available;
+    }
+    .serviciotelefonowrapper {
+        flex-direction: column;
+    }
+
+    .serviciotelefonowrapper input, select {
+        width: -webkit-fill-available;
+    }
+
+    .whatsappiconcontacto {
+        width: 70%;
+    }
+
+    .titulocontactoindex h2 {
+        font-size: 50px;
+    }
+    .titulocontactoindex h3 {
+        font-size: 30px;
+    }
+
+ }
+
+ @media screen and (max-width: 800px) { 
+    .contactoindexwrapper > .titulocontactoindex h2 {
+        font-size: 50px;
+    }
+    .contactoindexwrapper > .titulocontactoindex h3 {
+        font-size: 25px;
+    }
+ }
+
+ @media screen and (max-width: 700px) { 
+    .contactoindexwrapper > .titulocontactoindex h2 {
+        font-size: 45px;
+    }
+    .contactoindexwrapper > .titulocontactoindex h3 {
+        font-size: 23px;
+    }
+    form {
+        width: 87%;
+    }
+
+    .dottedline {
+        top: 10px;
+        left: -7%;
+        width: 19%;
+    }
+ }
+
+ @media only screen and (max-width: 600px) { 
+    .contactoindexwrapper > .titulocontactoindex h2 {
+        font-size: 35px !important;
+    }
+    .contactoindexwrapper > .titulocontactoindex h3 {
+        font-size: 19px !important;
+    }
+
+    .contactoindexwrapper > .titulocontactoindex {
+        width: 70%;
+    }
+
+    .whatsappwrapper {
+        width: 70%;
+    }
+
+    .whatsappwrapper h2 {
+        text-align: center;
+    }
+    .whatsappiconcontacto {
+        width: 100%;
+    }
+    .imageneswhatsappwrapper {
+        width: 25%;
+    }
+
+    .titulocontactoindex h2 {
+        font-size: 2px;
+    }
+
+    
+ }
+
+ @media screen and (max-width: 400px) { 
+    .arrowgif {
+        right: -90px;
+    }
+
+    form {
+        width: 95%;
+    } 
+    .whatsappwrapper {
+        width: 95%;
+    }
+
+    
+ }
+
+ @media screen and (max-width: 350px) { 
+    .arrowgif {
+        right: -70px;
+        top: -5px;
+    }
+    .whatsappwrapper {
+        width: 115%;
+    }
+    
+ }

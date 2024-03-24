@@ -1,0 +1,84 @@
+---
+import DottedLine from "../assets/dottedline.png";
+import ArrowGif from "../assets/arrowgif.gif";
+import WhatsappIconGreen from "../assets/whatsappicongreen.png";
+import WhatsappIcon from "../assets/whatsappicon.png";
+import WhatsapIconWhite from "../assets/whitewhatsapp.png";
+import Image from "astro/components/Image.astro";
+import react from "@astrojs/react";
+import ContactForm from "./contactform.jsx";
+import "./contactoindexmediaqueries.css";
+---
+
+<div class="contactoindexwrapper">
+    <div class="titulocontactoindex">
+        <h2>Contacto</h2>
+        <h3>
+            ¿Preparado para iniciar tu viaje hacia una salud y nutrición
+            optimizadas?
+        </h3>
+    </div>
+
+    <ContactForm client:load />
+
+    <Image
+        src={DottedLine}
+        class="dottedline"
+        alt="Guillermo Fernández dietista nutricionista en Valencia"
+    />
+
+    <div class="whatsappwrapper">
+        <h2>Envíame un WhatsApp</h2>
+        <div class="imageneswhatsappwrapper">
+            <a href={"https://wa.me/34692747052"}>
+                <Image
+                    src={WhatsapIconWhite}
+                    class="whatsappiconcontacto"
+                    alt="Guillermo Fernández dietista nutricionista en Valencia"
+                />
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .contactoindexwrapper {
+        background: rgb(0, 0, 0);
+        width: 100%;
+        margin-top: 8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        overflow-x: hidden;
+        padding-bottom: 90px;
+    }
+
+    .titulocontactoindex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 10px;
+    }
+
+    .titulocontactoindex h2 {
+        font-size: 60px;
+        font-weight: 800;
+        font-family: "Montserrat";
+        color: rgb(255, 255, 255);
+        text-transform: uppercase;
+        text-shadow: 2px 1px 10px black;
+        margin: 30px 0 0 0;
+    }
+
+    .titulocontactoindex h3 {
+        font-size: 35px;
+        font-weight: 400;
+        font-family: "Montserrat";
+        color: rgb(255, 255, 255);
+        margin: 30px 0 30px 0;
+    }
+
+
+</style>
