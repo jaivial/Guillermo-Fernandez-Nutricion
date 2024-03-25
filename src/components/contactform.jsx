@@ -27,7 +27,7 @@ export default function ContactForm() {
     console.log('Form submitted:', formData);
 
     try {
-      const response = await fetch('http://localhost:5001/send-email', {
+      const response = await fetch('http://62.72.32.46:5001/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
