@@ -13,7 +13,7 @@ import Icon3 from "../assets/icon3.png";
     </div>
 
     <div class="wrapperrectangulosservicios">
-        <div class="rectangulo">
+        <div class="rectangulo1">
             <Image
                 class="imageservicios"
                 src={Icon1}
@@ -28,7 +28,7 @@ import Icon3 from "../assets/icon3.png";
             <div class="vermasserviciosbutton">VER MÁS</div>
         </div>
 
-        <div class="rectangulo">
+        <div class="rectangulo2">
             <Image
                 class="imageservicios"
                 src={Icon2}
@@ -42,7 +42,7 @@ import Icon3 from "../assets/icon3.png";
             </div>
             <div class="vermasserviciosbutton">VER MÁS</div>
         </div>
-        <div class="rectangulo">
+        <div class="rectangulo3">
             <Image
                 class="imageservicios"
                 src={Icon3}
@@ -78,6 +78,7 @@ import Icon3 from "../assets/icon3.png";
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
         margin-bottom: 1rem;
         width: 90%;
     }
@@ -108,10 +109,10 @@ import Icon3 from "../assets/icon3.png";
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 100%;
+        height: auto;
     }
 
-    .rectangulo {
+    .rectangulo1, .rectangulo2, .rectangulo3 {
         border: 5px rgb(242, 120, 109, 0.7) solid;
         width: 350px;
         height: 500px;
@@ -122,7 +123,10 @@ import Icon3 from "../assets/icon3.png";
         justify-content: space-evenly;
         align-items: center;
         margin-top: 40px;
+        margin-right: 20px;
         padding: 20px;
+        background-color: white;
+        position: relative;
     }
 
     .imageservicios {
@@ -175,15 +179,40 @@ import Icon3 from "../assets/icon3.png";
     }
 
     /* ANIMTATIONS */
-    .rectangulo {
+    .rectangulo1 {
         opacity: 0;
         transform: translateX(100%);
         transition:
             opacity 2s ease-in-out,
             transform 2s ease-in-out;
     }
+    .rectangulo2 {
+        opacity: 0;
+        transform: translateX(100%);
+        transition:
+            opacity 2s ease-in-out,
+            transform 2s ease-in-out;
+            transition-delay: 800ms;
+    }
+    .rectangulo3 {
+        opacity: 0;
+        transform: translateX(100%);
+        transition:
+            opacity 2s ease-in-out,
+            transform 2s ease-in-out;
+            transition-delay: 1600ms;
+    }
 
-    .rectangulo.animated {
+    .rectangulo1.animated {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+
+    .rectangulo2.animated {
+        opacity: 1;
+        transform: translateX(0%)
+    }
+    .rectangulo3.animated {
         opacity: 1;
         transform: translateX(0%);
     }
@@ -268,18 +297,26 @@ import Icon3 from "../assets/icon3.png";
         function handleScroll() {
             var wrapper = document.querySelector(".wrappertituloservicios");
             if (isInViewport(wrapper)) {
-                var cards = document.querySelectorAll(".rectangulo");
-                cards.forEach(function (card, index) {
-                    if (card instanceof HTMLElement) {
-                        const delay = 100; // Supongamos que delay es un valor válido
-                        card.style.transitionDelay = delay + "ms";
-                    } else {
-                        // Manejar el caso en el que getElementById no devuelve un HTMLElement
-                        console.error("El elemento no es un HTMLElement");
-                    }
+                var cards = document.querySelectorAll(".rectangulo1");
+                cards.forEach(function (card) {
                     card.classList.add("animated");
                 });
             }
+            var wrapper = document.querySelector(".wrappertituloservicios");
+            if (isInViewport(wrapper)) {
+                var cards = document.querySelectorAll(".rectangulo2");
+                cards.forEach(function (card) {
+                    card.classList.add("animated");
+                });
+            }
+            var wrapper = document.querySelector(".wrappertituloservicios");
+            if (isInViewport(wrapper)) {
+                var cards = document.querySelectorAll(".rectangulo3");
+                cards.forEach(function (card) {
+                    card.classList.add("animated");
+                });
+            }
+    
         }
 
         // Initial check on page load
