@@ -4,9 +4,7 @@ import { SidebarData } from '../data/SideNavBarData';
 import { IconContext } from 'react-icons';
 import './sidenavbar.css';
 import * as FaIcons from 'react-icons/fa';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
 
 
 
