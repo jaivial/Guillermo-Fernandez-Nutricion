@@ -40,6 +40,7 @@ export default function ContactForm() {
 
       if (response.ok) {
         console.log('Email sent successfully');
+        alert('Email enviado con éxito');
         // Optionally, reset the form after successful submission
         setFormData({
           nombre: '',
