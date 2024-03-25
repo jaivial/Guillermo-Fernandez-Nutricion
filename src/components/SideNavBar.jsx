@@ -4,7 +4,11 @@ import { SidebarData } from '../data/SideNavBarData';
 import { IconContext } from 'react-icons';
 import './sidenavbar.css';
 import * as FaIcons from 'react-icons/fa';
-import Isotipo from '../assets/ISOTIPO.png'
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+
 
 
 
@@ -27,7 +31,7 @@ export default function SideNavBar() {
                         <li className="navbar-toggle">
                             <a className='menu-bars'>
                                 <AiOutlineClose />
-                                           
+
                             </a>
                         </li>
                         {SidebarData.map((item, index) => {
@@ -40,6 +44,8 @@ export default function SideNavBar() {
                                 </li>
                             )
                         })}
+                       
+
                     </ul>
                     <div className="sidebarbackground" onClick={showSidebar}></div>
                 </nav>

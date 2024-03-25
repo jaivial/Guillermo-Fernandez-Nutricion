@@ -10,37 +10,37 @@ import { TbMessage } from "react-icons/tb";
 export const SidebarData = [
     {
         title: 'Inicio',
-        path: '#',
+        path: '/',
         icon: <AiIcons.AiFillHome />,
         cName: 'nav-text'
     },
     {
         title: 'Sobre Mi',
-        path: '#',
+        path: '/sobremi',
         icon: <FaUserDoctor />,
         cName: 'nav-text'
     },
     {
         title: 'Nutrición Clínica',
-        path: '#',
+        path: '/nutricionclinica',
         icon: <IoNutrition />,
         cName: 'nav-text'
     },
     {
         title: 'Pérdida de Peso',
-        path: '#',
+        path: 'perdidadepeso',
         icon: <FaWeightScale />,
         cName: 'nav-text'
     },
     {
         title: 'Nutrición Deportiva',
-        path: '#',
+        path: '/nutriciondeportiva',
         icon: <GiWeightLiftingUp />,
         cName: 'nav-text'
     },
     {
         title: 'Contacto',
-        path: '#',
+        path: '/contacto',
         icon: <TbMessage />,
         cName: 'nav-text'
     }
