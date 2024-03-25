@@ -38,7 +38,9 @@ import { ViewTransitions } from "astro:transitions";
             <div class="textoherosectionwrapper">
             <h1>Guillermo Fernández de la Torre</h1>
             <h2>Dietista - Nutricionista</h2>
-            <div class="appointment-button-herosection">CONTACTAR</div>
+            <a href="/contacto">
+                <div class="appointment-button-herosection">CONTACTAR</div>
+            </a>
             </div>
         </div>
       
@@ -47,6 +49,9 @@ import { ViewTransitions } from "astro:transitions";
 </div>
 
 <style>
+    a {
+        text-decoration: none;
+    } 
 
     .textoresponsive {
         display: none;

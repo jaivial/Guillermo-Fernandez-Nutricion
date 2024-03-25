@@ -1,0 +1,105 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import HeroSection from "../components/HeroSection.astro";
+import SobreMi from "../components/SobreMi.astro";
+import ServiciosIndex from "../components/ServiciosIndex.astro";
+import Contacto from "../components/Contacto.astro";
+---
+
+<Layout title="Política de Privacidad">
+	<main>
+		<div class="avisolegalwrapper">
+			<div class="tituloavisolegal">
+				<h2>ACCESIBILIDAD</h2>
+			</div>
+			<div class="textoavisolegal">
+				<p>Guillermo Fernández de la Torre se ha comprometido a hacer accesible su sitio web, de conformidad con RD 1112/2018. <br> <br>
+
+					La presente declaración de accesibilidad se aplica en el sitio web <a href="www.guillermofernadeznutricion.com">www.guillermofernandeznutricion.com.</a></p>
+				
+				<p><strong>Situación de cumplimiento</strong></p>
+				<p>Este sitio web es plenamente acorde con RD 1112/2018.</p>
+				<p><strong>Preparación de la presente declaración de accesibilidad</strong></p>
+				<p>La presente declaración fue preparada el 25 de marzo de 2024. <br> <br>
+
+					Una autoevaluación llevada a cabo por el desarrollador web. <br> <br>
+					
+					Última revisión de la declaración: 25 de marzo de 2024.</p>
+				<p><strong>Observaciones y datos de contacto</strong></p>
+				<p>Comunicaciones sobre requisitos de accesibilidad: mecanismo de comunicación a utilizar para informar a Guillermo Fernández de la Torre de cualquier incumplimiento de los requisitos de accesibilidad y solicitar información y contenido excluidos del ámbito de la aplicación de la Directiva: <a href="mailto:info@guillermofernandeznutricion.com"></a>info@guillermofernandeznutricion.com.</p>
+				<p><strong>Procedimiento de aplicación</strong></p>
+				<p>Procedimiento de reclamación: El procedimiento de aplicación al que deberá recurrirse en caso de que la respuesta a la notificación o la solicitud sea insatisfactoria, de conformidad con el artículo 7, apartado 1, letra b), de la Directiva, es contactando en el teléfono 681 059 411.</p>
+				
+
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	body {
+		overflow-x: hidden;
+	}
+	main {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		align-items: center;
+		background-color: white;
+		font-size: 20px;
+		line-height: 1.6;
+		margin-top: 101px;
+	}
+
+	.avisolegalwrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		width: 100%;
+		overflow-x: hidden;
+	}
+
+	.tituloavisolegal {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		overflow-x: hidden;
+		background-color: rgb(20, 20, 20);
+		opacity: 0.8;
+	}
+
+	.tituloavisolegal h2 {
+		font-family: "Montserrat";
+		font-size: 30px;
+		color: white;
+		text-align: center;
+	}
+
+	.textoavisolegal {
+		width: 70%;
+		color: black;
+		text-align: justify;
+		font-size: 17px;
+		padding-top: 20px;
+	}
+
+	@media screen and (max-width: 1220px) {
+		main {
+			margin-top: 86px;
+		}
+
+		.textoavisolegal {
+			width: 90%;
+		}
+	}
+	@media screen and (max-width: 350px) {
+		.textoavisolegal {
+			width: 95%;
+		}
+	}
+</style>

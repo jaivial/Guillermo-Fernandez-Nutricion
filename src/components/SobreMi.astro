@@ -4,7 +4,6 @@ import Rectangulo2 from "./rectangulo2.jsx";
 import Rectangulo1 from "./rectangulo1.jsx";
 import react from "@astrojs/react";
 import SobreMiFoto from "../assets/guilleportada.png";
-
 ---
 
 <div class="sobremiwrapper">
@@ -35,7 +34,9 @@ import SobreMiFoto from "../assets/guilleportada.png";
                     personalizado y sostenible hacia la salud, acompañándote en
                     cada paso hacia tus metas de salud y una vida satisfactoria.
                 </p>
-                <div class="sobremivermasbutton">VER MÁS</div>
+                <a href="/sobremi">
+                    <div class="sobremivermasbutton">VER MÁS</div>
+                </a>
             </div>
         </div>
         <div class="imagenessobremiwrapper">
@@ -53,6 +54,9 @@ import SobreMiFoto from "../assets/guilleportada.png";
 </div>
 
 <style>
+    a {
+        text-decoration: none;
+    }
     .sobremiwrapper {
         width: 100%;
         display: flex;
@@ -265,6 +269,20 @@ import SobreMiFoto from "../assets/guilleportada.png";
       height: 85%;
    }
 }
+
+@media screen and (max-width: 380px) {
+        .titulosectionwrapper h2  {
+            font-size: 30px;
+        }
+        .titulosectionwrapper h3  {
+            font-size: 25px;
+        }
+    }
+    @media screen and (max-width: 360px) {
+        .rectangulo1, .rectangulo2, .rectangulo3 {
+            margin: 20px 20px;
+        }
+    }
 
 @media screen and (max-width: 350px) {
    .titulosectionwrapper h2 {

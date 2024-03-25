@@ -25,7 +25,9 @@ import Icon3 from "../assets/icon3.png";
                 <p>Estrategia integral para cada condición.</p>
                 <p>Consejería detallada y apoyo continuo.</p>
             </div>
-            <div class="vermasserviciosbutton">VER MÁS</div>
+            <a href="/nutricionclinica">
+                <div class="vermasserviciosbutton">VER MÁS</div>
+            </a>
         </div>
 
         <div class="rectangulo2">
@@ -40,7 +42,9 @@ import Icon3 from "../assets/icon3.png";
                 <p>Creando un equilibrio nutritivo.</p>
                 <p>Soporte en cada paso.</p>
             </div>
-            <div class="vermasserviciosbutton">VER MÁS</div>
+            <a href="/perdidadepeso">
+                <div class="vermasserviciosbutton">VER MÁS</div>
+            </a>
         </div>
         <div class="rectangulo3">
             <Image
@@ -54,17 +58,20 @@ import Icon3 from "../assets/icon3.png";
                 <p>Especialización en diferentes deportes.</p>
                 <p>Estrategias personalizadas.</p>
             </div>
-            <div class="vermasserviciosbutton">VER MÁS</div>
+            <a href="/nutriciondeportiva">
+                <div class="vermasserviciosbutton">VER MÁS</div>
+            </a>
         </div>
     </div>
 </div>
 
 <style>
+    a {
+        text-decoration: none;
+    }
     .wrapperservicios {
         width: 100%;
-        height: auto;
-        margin-top: 50px;
-        margin-bottom: 50px;
+        height: auto;   
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -248,6 +255,14 @@ import Icon3 from "../assets/icon3.png";
     @media screen and (max-width: 420px) {
          .rectangulo1, .rectangulo2, .rectangulo3 {
             margin: 20px 25px;
+        }
+    }
+    @media screen and (max-width: 380px) {
+        .wrappertituloservicios h2  {
+            font-size: 30px;
+        }
+        .wrappertituloservicios h3  {
+            font-size: 25px;
         }
     }
     @media screen and (max-width: 360px) {

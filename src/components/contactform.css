@@ -247,10 +247,3 @@ button[type="submit"]::after {
     width: 100%;
 }
 
-.imageneswhatsappwrapper a:hover .whatsappiconcontacto {
-    display: none;
-}
-
-.imageneswhatsappwrapper a:hover .whatsappiconcontactogreen {
-    display: flex;
-}

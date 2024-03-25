@@ -117,14 +117,21 @@
         width: 260%;
 }
 }
-@media screen and (max-width: 4600px) {
+@media screen and (max-width: 460px) {
    
 
     .nav-menu-items {
-        width: 360%;
+        width: 290%;
 }
 }
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 400px) {
+   
+
+    .nav-menu-items {
+        width: 420%;
+}
+}
+@media screen and (max-width: 320px) {
     .sidebarbackground {
         display: none;
     }

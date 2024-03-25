@@ -5,6 +5,7 @@ import HeroSection from '../components/HeroSection.astro';
 import SobreMi from '../components/SobreMi.astro';
 import ServiciosIndex from '../components/ServiciosIndex.astro';
 import Contacto from '../components/Contacto.astro';
+import GoogleReviews from '../components/GoogleReviews';
 ---
 
 <Layout title="Guillermo Fernandez Nutricionista">
@@ -12,6 +13,7 @@ import Contacto from '../components/Contacto.astro';
 		<HeroSection />
 		<SobreMi />
 		<ServiciosIndex />
+		<GoogleReviews client:load/>
 		<Contacto />
 	</main>
 </Layout>

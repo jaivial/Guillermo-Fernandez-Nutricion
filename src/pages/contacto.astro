@@ -9,7 +9,7 @@ import Contacto from '../components/Contacto.astro';
 
 <Layout title="Guillermo Fernandez Nutricionista">
 	<main>
-		<Contacto />
+		<Contacto class="contacto" />
 	</main>
 </Layout>
 
@@ -26,7 +26,9 @@ import Contacto from '../components/Contacto.astro';
 		background-color: white;
 		font-size: 20px;
 		line-height: 1.6;
+		margin-top: 101px;
 	}
+
 	.astro-a {
 		position: absolute;
 		top: -32px;
@@ -67,5 +69,11 @@ import Contacto from '../components/Contacto.astro';
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 2rem;
 		padding: 0;
+	}
+
+	@media screen and (max-width: 1220px) {
+		main {
+			margin-top: 86px;
+		}
 	}
 </style>
