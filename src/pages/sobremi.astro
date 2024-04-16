@@ -1,28 +1,256 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import HeroSection from '../components/HeroSection.astro';
-import SobreMi from '../components/SobreMi.astro';
-import ServiciosIndex from '../components/ServiciosIndex.astro';
-import Contacto from '../components/Contacto.astro';
+import Layout from "../layouts/Layout.astro";
+import ProfilePhoto from "../assets/guilleportada.png";
+import GuilleEstudia from "../assets/guilleestudia.JPG";
+import UniversitatDeValencia from "../assets/universitatdevalencia.jpeg";
+import Vithas9Octubre from "../assets/vithas9octubre.jpeg";
+import GuilleConBata from "../assets/guilleconbata.JPG";
+import DietistaconTablet from "../assets/dietistacontablet.jpeg";
+import Image from "astro/components/Image.astro";
 ---
 
 <Layout title="Guillermo Fernandez Nutricionista">
 	<main>
-		<h1>SOBRE MI PAGE</h1>
-		<h1>SOBRE MI PAGE</h1>
-		<h1>SOBRE MI PAGE</h1>
-		<h1>SOBRE MI PAGE</h1>
-		<h1>SOBRE MI PAGE</h1>
-		<h1>SOBRE MI PAGE</h1>
-		<h1>SOBRE MI PAGE</h1>
-		<h1>SOBRE MI PAGE</h1>
-		<h1>SOBRE MI PAGE</h1>
-		<h1>SOBRE MI PAGE</h1>
+		<div class="sobremiheader">
+			<div class="sobremiprofilephotowrapper">
+				<Image
+					src={ProfilePhoto}
+					alt="Guillermo Fernández dietista nutricionista en Valencia"
+					class="sobremiprofilephoto"
+				/>
+			</div>
+			<div class="sobremititulo">
+				<h1>Guillermo Fernandez de la Torre</h1>
+				<h2>Nutricionista online y presencial</h2>
+				<p>
+					A continuación, te invito a explorar mi trayectoria y
+					experiencia profesional. Estoy listo para apoyarte en
+					alcanzar tus metas y optimizar tu bienestar. <br>¿Comenzamos?
+				</p>
+			</div>
+		</div>
+		<div class="trayectoriatitulo">
+			<h2>
+				Mi Historial Académico y Acreditaciones en el <br /> Campo de la
+				Nutrición
+			</h2>
+		</div>
+		<div class="trayectoriaacademica">
+			<div class="bloqueA">
+				<p>
+					Soy <strong>técnico superior en dietética</strong>. <br
+					/>Considero que fue una experiencia muy gratificante ya que
+					fue el primer contacto formal con el mundo de la
+					alimentación en su conjunto y que me permitió tener una
+					visión mucho más integral de este mundo. <br /><br />
+					Completé esta gran etapa de formación realizando las <strong
+						>prácticas en la clínica de fisioterapia Sinergia Clinic</strong
+					>, situada en la Av. Primado Reig 70 (Valencia).
+				</p>
+				<Image
+					src={GuilleEstudia}
+					alt="Guillermo Fernández dietista nutricionista en Valencia"
+					class="sobremiprofilephoto"
+				/>
+			</div>
+			<div class="bloqueB">
+				<Image
+					src={UniversitatDeValencia}
+					alt="Guillermo Fernández dietista nutricionista en Valencia"
+					class="sobremiprofilephoto"
+				/>
+				<p>
+					Posteriormente, me gradué en <strong
+						>Nutrición Humana y Dietética en la Universidad de
+						Valencia</strong
+					> y esto me permitió ampliar mis conocimientos previos hasta
+					la fecha y pudiendo alcanzar un nuevo nivel en mis planificaciones
+					dietéticas y nutricionales.
+				</p>
+			</div>
+			<div class="bloqueA">
+				<p>
+					Después de graduarme, he continuado con mi formación de
+					manera activa realizando el <strong
+						>máster de experto universitario en nutrición clínica</strong
+					> llevado a cabo por <strong>CEAN GROUP</strong>. <br /><br
+					/>Ahora aplico mis habilidades como <strong
+						>dietista en el hospital Vithas 9 de octubre en Valencia</strong
+					>, colaborando en tratamientos especializados para mejorar
+					la salud de los pacientes.
+				</p>
+				<Image
+					src={Vithas9Octubre}
+					alt="Guillermo Fernández dietista nutricionista en Valencia"
+					class="sobremiprofilephoto"
+				/>
+			</div>
+		</div>
+		<div class="trayectoriatitulo">
+			<h2>Mi Faceta Profesional y Compromiso con los Pacientes</h2>
+		</div>
+		<div class="trayectoriaprofesional">
+			<div class="bloqueB">
+				<Image
+					src={GuilleConBata}
+					alt="Guillermo Fernández dietista nutricionista en Valencia"
+					class="sobremiprofilephoto"
+				/>
+				<p>
+					Como <strong>tu nutricionista</strong>, me comprometo a ser
+					un guía y un apoyo constante en tu camino hacia <strong
+						>una mejor salud
+					</strong>. <br />
+					<br /> Con una combinación de experiencia y pasión por mi trabajo,
+					me esfuerzo por ofrecerte un <strong
+						>servicio personalizado y adaptado</strong
+					>
+					a tus necesidades individuales. Me caracterizo por ser un
+					<strong
+						>profesional responsable, trabajador y proactivo</strong
+					>, siempre dispuesto a acompañarte en cada paso del proceso.
+				</p>
+			</div>
+			<div class="bloqueA">
+				<p>
+					Comprometido con <strong>la mejora continua</strong> tanto en mí mismo como
+					en mis clientes, estoy constantemente buscando nuevas formas
+					de mejorar y optimizar nuestros resultados. <br><br> Manteniéndome al
+					día con las últimas investigaciones y tendencias en
+					nutrición, puedo asegurarte que recibirás el <strong>mejor
+						asesoramiento</strong> posible, respaldado por la evidencia
+					científica más actualizada. Juntos, podemos trabajar hacia
+					un estilo de vida más <strong>saludable y feliz</strong>.
+				</p>
+				<Image
+					src={DietistaconTablet}
+					alt="Guillermo Fernández dietista nutricionista en Valencia"
+					class="sobremiprofilephoto"
+				/>
+			</div>
+		</div>
 	</main>
 </Layout>
 
 <style>
+	.trayectoriaprofesional {
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		align-items: center;
+		width: 90%;
+		padding: 80px 0 80px 0;
+		gap: 120px;
+	}
+	.bloqueB p {
+		font-family: "Montserrat";
+		color: black;
+		text-align: start;
+		font-size: 16px;
+	}
+	.bloqueB {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: 70%;
+		gap: 80px;
+	}
+	.bloqueA p {
+		font-family: "Montserrat";
+		color: black;
+		text-align: end;
+		font-size: 16px;
+	}
+	.bloqueA {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: 70%;
+		gap: 80px;
+	}
+	.trayectoriaacademica {
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		align-items: center;
+		width: 90%;
+		padding: 80px 0 80px 0;
+		gap: 120px;
+	}
+	.trayectoriatitulo h2 {
+		color: white;
+		font-family: "Montserrat";
+		font-size: 28px;
+		width: 60%;
+		text-align: center;
+	}
+	.trayectoriatitulo {
+		background-color: rgba(0, 0, 0, 0.935);
+		padding: 50px 0 50px 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+	.sobremititulo h1 {
+		color: black;
+		font-size: 35px;
+		text-align: center;
+	}
+	.sobremititulo h2 {
+		color: #ffffff;
+		font-size: 30px;
+		margin-top: -10px;
+		text-align: center;
+	}
+	.sobremititulo h1,
+	h2 {
+		margin: 0;
+		font-family: "Montserrat";
+	}
+	.sobremititulo p {
+		width: 90%;
+		font-size: 18px;
+		color: black;
+	}
+	.sobremititulo {
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		margin: 0 30px 0 30px;
+	}
+
+	.sobremiheader {
+		width: 100%;
+		background-color: #abccb9;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		height: auto;
+		padding: 70px;
+		gap: 10px;
+	}
+
+	.sobremiprofilephotowrapper {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		flex-direction: row;
+		width: 50%;
+	}
+
+	.sobremiprofilephoto {
+		width: 400px;
+		height: auto;
+		background-color: rgb(239, 239, 239);
+		border-radius: 30px;
+	}
 	body {
 		overflow-x: hidden;
 	}
@@ -36,6 +264,7 @@ import Contacto from '../components/Contacto.astro';
 		font-size: 20px;
 		line-height: 1.6;
 		margin-top: 101px;
+		overflow-x: hidden;
 	}
 	.astro-a {
 		position: absolute;
@@ -57,7 +286,10 @@ import Contacto from '../components/Contacto.astro';
 	.instructions {
 		margin-bottom: 2rem;
 		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		background: linear-gradient(
+			rgba(var(--accent-dark), 66%),
+			rgba(var(--accent-dark), 33%)
+		);
 		padding: 1.5rem;
 		border-radius: 8px;
 	}
@@ -80,7 +312,110 @@ import Contacto from '../components/Contacto.astro';
 	}
 	@media screen and (max-width: 1220px) {
 		main {
-			margin-top: 86px;
+			margin-top: 70px;
+		}
+		.bloqueA, .bloqueB, .trayectoriatitulo h2 {
+			width: 100%;
 		}
 	}
+	@media screen and (max-width: 900px) {
+		.sobremiheader {
+			flex-direction: column;
+		}
+		.sobremiprofilephotowrapper {
+			width: initial;
+		}
+
+		.sobremititulo {
+			align-items: center;
+			width: 90%;
+		}
+
+		.sobremititulo p {
+			text-align: center;
+		}
+
+		.bloqueA {
+			flex-direction: column-reverse;
+			width: 75%;
+			gap: 30px;
+		}
+		.bloqueB {
+			flex-direction: column;
+			width: 75%;
+			gap: 30px;
+		}
+
+		.bloqueA p, .bloqueB p {
+			text-align: center;
+		}
+
+		.trayectoriaacademica, .trayectoriaprofesional {
+			gap: 65px;
+		}
+
+		.trayectoriatitulo h2 {
+			width: 90%;
+		}
+	}
+	@media screen and (max-width: 650px) { 
+		.bloqueA, .bloqueB {
+			width: 85%;
+		}
+		.sobremititulo p {
+			width: 100%;
+		}
+
+		.bloqueA p, .bloqueB p {
+			text-align: justify;
+		}
+	}
+	@media screen and (max-width: 600px) { 
+		.sobremiheader {
+			width: 90%;
+		}
+
+		.sobremititulo {
+			width: 100%;
+		}
+
+		.sobremiprofilephoto {
+			width: 100%;
+		}
+
+		.trayectoriaacademica, .trayectoriaprofesional {
+			padding: 50px 0 50px 0;
+		}
+	} 
+	@media screen and (max-width: 500px) { 
+		.sobremiheader {
+			padding: 55px;
+		}
+
+		.trayectoriatitulo {
+			padding: 35px 0 35px 0;
+		}
+		.trayectoriatitulo h2 {
+			font-size: 24px;
+		}
+
+		.sobremititulo {
+			margin: 0px;
+		}
+		.sobremititulo h1 {
+			font-size: 30px;
+		}
+
+		.sobremititulo h2 {
+			font-size: 27px;
+		}
+	} 
+	@media screen and (max-width: 350px) { 
+		.trayectoriatitulo {
+			padding: 25px 0 25px 0;
+		}
+		.trayectoriatitulo h2 {
+			font-size: 21px;
+		}
+	} 
 </style>
