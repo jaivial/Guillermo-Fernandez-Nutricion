@@ -8,7 +8,8 @@ import SideBarMenu from "../components/SideNavBar.jsx";
 ---
 
 <nav class="navbar">
-    <SideBarMenu client:load />
+    <SideBarMenu client:load style={{ zIndex: 999 }} />
+
     <div class="logo">
         <Image
             src={Logo}
