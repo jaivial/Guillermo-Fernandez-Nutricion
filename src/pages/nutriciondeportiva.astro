@@ -30,11 +30,13 @@ import Image from "astro/components/Image.astro";
 		</div>
 		<div class="sectioncotainer">
 			<div class="bloque1">
-				<Image
-					src={NutricionDeportiva2}
-					alt="Guillermo Fernández dietista nutricionista en Valencia"
-					class="sobremiprofilephoto"
-				/>
+				<div class="bloqueimage">
+					<Image
+						src={NutricionDeportiva2}
+						alt="Guillermo Fernández dietista nutricionista en Valencia"
+						class="sobremiprofilephoto"
+					/>
+				</div>
 				<div class="bloquetexto">
 					<h2>Optimizando tu máximo nivel deportivo
 					</h2>
@@ -45,11 +47,13 @@ import Image from "astro/components/Image.astro";
 				</div>
 			</div>
 			<div class="bloque1" id="bloque2">
-				<Image
-					src={NutricionDeportiva1}
-					alt="Guillermo Fernández dietista nutricionista en Valencia"
-					class="sobremiprofilephoto"
-				/>
+				<div class="bloqueimage">
+					<Image
+						src={NutricionDeportiva1}
+						alt="Guillermo Fernández dietista nutricionista en Valencia"
+						class="sobremiprofilephoto"
+					/>
+				</div>
 				<div class="bloquetexto">
 					<h2>Especialización en diferentes deportes</h2>
 					<p>
@@ -59,11 +63,13 @@ import Image from "astro/components/Image.astro";
 				</div>
 			</div>
 			<div class="bloque1" id="bloque3">
-				<Image
-					src={NutricionDeportiva3}
-					alt="Guillermo Fernández dietista nutricionista en Valencia"
-					class="sobremiprofilephoto"
-				/>
+				<div class="bloqueimage">
+					<Image
+						src={NutricionDeportiva3}
+						alt="Guillermo Fernández dietista nutricionista en Valencia"
+						class="sobremiprofilephoto"
+					/>
+				</div>
 				<div class="bloquetexto">
 					<h2>Estrategias personalizadas</h2>
 					<p>
@@ -144,7 +150,14 @@ import Image from "astro/components/Image.astro";
 		text-align: center;
 		width: 50%;
 	}
-	
+	.bloqueimage {
+		width: 40%;
+		aspect-ratio: 1 / 1;
+	}
+	.bloquetexto {
+		width: 60%;
+		height: inherit;
+	}
 	.bloquetexto p {
 		font-family: "Montserrat";
 		color: black;
@@ -156,12 +169,16 @@ import Image from "astro/components/Image.astro";
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
-		width: 70%;
+		width: 80%;
 		gap: 50px;
 		border-radius: 30px;
 		background-color: rgba(205, 112, 112, 0.15);
-		padding: 30px;
+		padding: 30px 30px;
 		text-align: center;
+	}
+
+	.bloque1 img {
+		width: 100%;
 	}
 	#bloque2 {
 		background-color: rgb(205, 112, 112, 0.27);
@@ -203,7 +220,6 @@ import Image from "astro/components/Image.astro";
 		color: #ffffff;
 		font-size: 30px;
 		margin-top: -10px;
-		text-align: center;
 	}
 	.sobremititulo h1,
 	h2 {
@@ -317,6 +333,14 @@ import Image from "astro/components/Image.astro";
 			width: 100%;
 		}
 	}
+	@media screen and (max-width: 950px) {
+		.bloqueimage {
+			width: 45%;
+		}
+		.bloquetexto {
+			width: 55%;
+		}
+	}
 	@media screen and (max-width: 900px) {
 		.sobremiheader {
 			flex-direction: column;
@@ -356,10 +380,31 @@ import Image from "astro/components/Image.astro";
 		.trayectoriatitulo h2 {
 			width: 90%;
 		}
+
+		.bloquetexto {
+			width: 100%;
+		}
+
+		.bloquetexto p {
+			text-align: justify;
+		}
+
+		.bloqueimage {
+			width: 95%;
+		}
+		.sobremititulo h2 {
+			text-align: center;
+		}
+	}
+	@media screen and (max-width: 800px) { 
+	.pidetucita p {
+		width: 85%;
+	}
 	}
 	@media screen and (max-width: 650px) { 
 		.bloque1, .bloqueB {
-			width: 85%;
+			width: 90%;
+			padding: 20px;
 		}
 		.sobremititulo p {
 			width: 100%;
@@ -367,6 +412,9 @@ import Image from "astro/components/Image.astro";
 
 		.bloque1 p, .bloqueB p, .sobremititulo p {
 			text-align: justify;
+		}
+		.bloqueimage {
+			width: 100%;
 		}
 	}
 	@media screen and (max-width: 600px) { 
@@ -385,6 +433,7 @@ import Image from "astro/components/Image.astro";
 		.sectioncotainer, .trayectoriaprofesional {
 			padding: 50px 0 50px 0;
 		}
+		
 	} 
 	@media screen and (max-width: 500px) { 
 		.sobremiheader {
