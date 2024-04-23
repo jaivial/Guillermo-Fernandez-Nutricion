@@ -184,44 +184,7 @@ import Icon3 from "../assets/icon3.png";
         transition: 0.4s;
     }
 
-    /* ANIMTATIONS */
-    .rectangulo1 {
-        opacity: 0;
-        transform: translateX(100%);
-        transition:
-            opacity 2s ease-in-out,
-            transform 2s ease-in-out;
-    }
-    .rectangulo2 {
-        opacity: 0;
-        transform: translateX(100%);
-        transition:
-            opacity 2s ease-in-out,
-            transform 2s ease-in-out;
-            transition-delay: 800ms;
-    }
-    .rectangulo3 {
-        opacity: 0;
-        transform: translateX(100%);
-        transition:
-            opacity 2s ease-in-out,
-            transform 2s ease-in-out;
-            transition-delay: 1600ms;
-    }
-
-    .rectangulo1.animated {
-        opacity: 1;
-        transform: translateX(0%);
-    }
-
-    .rectangulo2.animated {
-        opacity: 1;
-        transform: translateX(0%)
-    }
-    .rectangulo3.animated {
-        opacity: 1;
-        transform: translateX(0%);
-    }
+    
 
 
     @media screen and (max-width: 1000px) { 
@@ -301,56 +264,3 @@ import Icon3 from "../assets/icon3.png";
         }
     }
 </style>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Function to check if an element is in viewport
-        function isInViewport(element: Element | null): boolean {
-            if (element === null) {
-                return false;
-            }
-
-            var rect = element.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <=
-                    (window.innerHeight ||
-                        document.documentElement.clientHeight) &&
-                rect.right <=
-                    (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
-
-        // Function to handle scroll event
-        function handleScroll() {
-            var wrapper = document.querySelector(".wrappertituloservicios");
-            if (isInViewport(wrapper)) {
-                var cards = document.querySelectorAll(".rectangulo1");
-                cards.forEach(function (card) {
-                    card.classList.add("animated");
-                });
-            }
-            var wrapper = document.querySelector(".wrappertituloservicios");
-            if (isInViewport(wrapper)) {
-                var cards = document.querySelectorAll(".rectangulo2");
-                cards.forEach(function (card) {
-                    card.classList.add("animated");
-                });
-            }
-            var wrapper = document.querySelector(".wrappertituloservicios");
-            if (isInViewport(wrapper)) {
-                var cards = document.querySelectorAll(".rectangulo3");
-                cards.forEach(function (card) {
-                    card.classList.add("animated");
-                });
-            }
-    
-        }
-
-        // Initial check on page load
-        handleScroll();
-
-        // Listen for scroll event
-        window.addEventListener("scroll", handleScroll);
-    });
-</script>
