@@ -1,0 +1,418 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HealthyFoodPortada from "../assets/healthyfood.webp";
+import HealthyFood3 from "../assets/healthyfood3.webp";
+import HealthyFood4 from "../assets/healthyfood4.webp";
+import HealthyFood2 from "../assets/healthyfood2.webp";
+import Image from "astro/components/Image.astro";
+---
+
+<Layout title="Guillermo Fernandez Nutricionista">
+	<main>
+		<div class="sobremiheader">
+			<div class="sobremiprofilephotowrapper">
+				<Image
+					src={HealthyFoodPortada}
+					alt="Guillermo Fernández dietista nutricionista en Valencia"
+					class="sobremiprofilephoto"
+				/>
+			</div>
+			<div class="sobremititulo">
+				<h1>Hábitos Alimentarios
+				</h1>
+				<h2>Fomentando hábitos alimentarios para una vida saludable.</h2>
+				<p>Explora nuestra sección de Hábitos Alimentarios, donde te ayudamos a cultivar prácticas alimenticias que promueven un bienestar óptimo. Desde consejos simples hasta estrategias personalizadas, estamos aquí para guiarte hacia un estilo de vida más equilibrado y saludable.</p>
+			</div>
+		</div>
+		<div class="sectioncotainer">
+			<div class="bloque1">
+				<Image
+					src={HealthyFood2}
+					alt="Guillermo Fernández dietista nutricionista en Valencia"
+					class="sobremiprofilephoto"
+				/>
+				<div class="bloquetexto">
+					<h2>Transformación de rutinas alimentarias</h2>
+					<p>
+						Mi enfoque hacia la transformación de tus <strong>hábitos alimentarios</strong>hábitos alimentarios es holístico y <strong>completamente personalizado</strong>, destinado a renovar tu relación con la comida de una manera <strong>saludable y sostenible</strong>. <br><br>Reconozco que cada pequeño cambio es significativo y trabajo contigo para integrar prácticas alimenticias que enriquezcan tu vida, <strong>mejoren tu bienestar</strong> y se sincronicen con tus ritmos naturales.
+
+					</p>
+				</div>
+			</div>
+			<div class="bloque1" id="bloque2">
+				<Image
+					src={HealthyFood3}
+					alt="Guillermo Fernández dietista nutricionista en Valencia"
+					class="sobremiprofilephoto"
+				/>
+				<div class="bloquetexto">
+					<h2>Creando un equilibrio nutritivo
+					</h2>
+					<p>
+						<strong>El equilibrio</strong> es fundamental para un estilo de <strong>vida saludable</strong>. <br><br>Te guío para que encuentres la armonía perfecta entre sabores, nutrientes y satisfacción, convirtiendo la <strong>alimentación</strong> en una <strong>fuente de placer y salud</strong>. Con mi apoyo, aprenderás a componer platos vibrantes y nutritivos, <strong>adaptados a tus preferencias</strong> y necesidades personales.
+
+					</p>
+				</div>
+			</div>
+			<div class="bloque1" id="bloque3">
+				<Image
+					src={HealthyFood4}
+					alt="Guillermo Fernández dietista nutricionista en Valencia"
+					class="sobremiprofilephoto"
+				/>
+				<div class="bloquetexto">
+					<h2>Soporte en cada paso
+					</h2>
+					<p>
+						Sé que adoptar nuevos hábitos puede presentar desafíos, pero conmigo, nunca estarás solo en este proceso. <br><br><strong>Ofrezco un soporte</strong> inquebrantable, motivándote y asistiéndote a través de cada fase de tu transformación. Desde superar obstáculos hasta celebrar tus victorias, estoy aquí para asegurar que tus nuevos <strong>hábitos alimentarios</strong> se desarrollen y permanezcan contigo.
+
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="pidetucita">
+			<h2>CONTACTO</h2>
+			<p>Transforma tu vida con un enfoque personalizado en nutrición. Reserva tu cita ahora y da el primer paso hacia un bienestar duradero. Con mi guía experta, superaremos juntos cualquier duda y desafío</p>
+			<a href="/contacto" style="text-decoration: none">
+				<div class="appointment-button">Pide tu Cita</div>
+			</a>
+		</div>
+		
+	</main>
+</Layout>
+
+<style>
+	 .appointment-button {
+        position: relative;
+        padding: 1rem 1.5rem;
+        background-color: #f37d73;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 20px;
+        overflow: hidden;
+        transition:
+            transform 0.3s ease-in-out,
+            box-shadow 0.3s ease-in-out;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow for depth */
+		font-size: 18px;
+		text-align: center;
+    }
+
+    .appointment-button:hover {
+        transform: scale(1.1) rotate(0deg); /* Increase size and add slight rotation on hover */
+        box-shadow: 0 0 20px rgba(254, 249, 249, 0.5); /* Increase shadow size on hover */
+    }
+
+    .appointment-button::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.5),
+            transparent
+        );
+        animation: shinyAnimation 2.5s infinite;
+    }
+	.pidetucita {
+		width: 100%;
+		padding: 70px 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-color: black;
+		gap: 15px;
+	}
+
+	.pidetucita h2 {
+		font-size: 25px;
+		font-family: 'Montserrat';
+		color: white;
+		text-align: center;
+	}
+	.pidetucita p {
+		font-size: 18px;
+		font-family: 'Montserrat';
+		color: white;
+		text-align: center;
+		width: 50%;
+	}
+	
+	.bloquetexto p {
+		font-family: "Montserrat";
+		color: black;
+		text-align: start;
+		font-size: 16px;
+	}
+	.bloque1 {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: 70%;
+		gap: 50px;
+		border-radius: 30px;
+		background-color: rgba(205, 112, 112, 0.15);
+		padding: 30px;
+		text-align: center;
+	}
+	#bloque2 {
+		background-color: rgb(205, 112, 112, 0.27);
+	}
+	#bloque3 {
+		background-color: rgb(205, 112, 112, 0.4);
+	}
+	.sectioncotainer {
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		align-items: center;
+		width: 90%;
+		padding: 80px 0 80px 0;
+		gap: 60px;
+	}
+	.trayectoriatitulo h2 {
+		color: white;
+		font-family: "Montserrat";
+		font-size: 28px;
+		width: 60%;
+		text-align: center;
+	}
+	.trayectoriatitulo {
+		background-color: rgba(0, 0, 0, 0.935);
+		padding: 50px 0 50px 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+	.sobremititulo h1 {
+		color: black;
+		font-size: 35px;
+		text-align: center;
+	}
+	.sobremititulo h2 {
+		color: #ffffff;
+		font-size: 30px;
+		margin-top: -10px;
+		text-align: left; 
+	}
+	.sobremititulo h1,
+	h2 {
+		margin: 0;
+		font-family: "Montserrat";
+	}
+	.sobremititulo p {
+		width: 90%;
+		font-size: 18px;
+		color: black;
+	}
+	.sobremititulo {
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		margin: 0 30px 0 30px;
+	}
+
+	.sobremiheader {
+		width: 100%;
+		background-color: #abccb9;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		height: auto;
+		padding: 70px;
+		gap: 10px;
+	}
+
+	.sobremiprofilephotowrapper {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		flex-direction: row;
+		width: 50%;
+	}
+
+	.sobremiprofilephoto {
+		width: 400px;
+		height: auto;
+		background-color: rgb(239, 239, 239);
+		border-radius: 30px;
+	}
+	body {
+		overflow-x: hidden;
+	}
+	main {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		align-items: center;
+		background-color: white;
+		font-size: 20px;
+		line-height: 1.6;
+		margin-top: 101px;
+		overflow-x: hidden;
+	}
+	.astro-a {
+		position: absolute;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
+	}
+
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--accent-light), 25%);
+		background: linear-gradient(
+			rgba(var(--accent-dark), 66%),
+			rgba(var(--accent-dark), 33%)
+		);
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+	.instructions code {
+		font-size: 0.8em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 12%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+	@media screen and (max-width: 1220px) {
+		main {
+			margin-top: 70px;
+		}
+		.bloque1, .bloqueB, .trayectoriatitulo h2 {
+			width: 100%;
+		}
+	}
+	@media screen and (max-width: 900px) {
+		.sobremiheader {
+			flex-direction: column;
+		}
+		.sobremiprofilephotowrapper {
+			width: initial;
+		}
+
+		.sobremititulo {
+			align-items: center;
+			width: 90%;
+		}
+
+		.sobremititulo p {
+			text-align: center;
+		}
+
+		.bloque1 {
+			flex-direction: column-reverse;
+			width: 75%;
+			gap: 30px;
+		}
+		.bloqueB {
+			flex-direction: column;
+			width: 75%;
+			gap: 30px;
+		}
+
+		.bloque1 p, .bloqueB p {
+			text-align: center;
+		}
+
+		.sectioncotainer, .trayectoriaprofesional {
+			gap: 65px;
+		}
+
+		.trayectoriatitulo h2 {
+			width: 90%;
+		}
+	}
+	@media screen and (max-width: 650px) { 
+		.bloque1, .bloqueB {
+			width: 85%;
+		}
+		.sobremititulo p {
+			width: 100%;
+		}
+
+		.bloque1 p, .bloqueB p, .sobremititulo p {
+			text-align: justify;
+		}
+	}
+	@media screen and (max-width: 600px) { 
+		.sobremiheader {
+			width: 90%;
+		}
+
+		.sobremititulo {
+			width: 100%;
+		}
+
+		.sobremiprofilephoto {
+			width: 100%;
+		}
+
+		.sectioncotainer, .trayectoriaprofesional {
+			padding: 50px 0 50px 0;
+		}
+	} 
+	@media screen and (max-width: 500px) { 
+		.sobremiheader {
+			padding: 55px;
+		}
+
+		.trayectoriatitulo {
+			padding: 35px 0 35px 0;
+		}
+		.trayectoriatitulo h2 {
+			font-size: 24px;
+		}
+
+		.sobremititulo {
+			margin: 0px;
+		}
+		.sobremititulo h1 {
+			font-size: 30px;
+		}
+
+		.sobremititulo h2 {
+			font-size: 27px;
+		}
+	} 
+	@media screen and (max-width: 350px) { 
+		.trayectoriatitulo {
+			padding: 25px 0 25px 0;
+		}
+		.trayectoriatitulo h2 {
+			font-size: 21px;
+		}
+	} 
+</style>

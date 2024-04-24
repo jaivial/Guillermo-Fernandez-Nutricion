@@ -5,7 +5,7 @@ import { IoNutrition } from "react-icons/io5";
 import { FaWeightScale } from "react-icons/fa6";
 import { GiWeightLiftingUp } from "react-icons/gi";
 import { TbMessage } from "react-icons/tb";
-
+import { FaHeartbeat } from "react-icons/fa";
 
 export const SidebarData = [
     {
@@ -23,12 +23,12 @@ export const SidebarData = [
     {
         title: 'Nutrición Clínica',
         path: '/nutricionclinica',
-        icon: <IoNutrition />,
+        icon: <FaHeartbeat />,
         cName: 'nav-text'
     },
     {
         title: 'Pérdida de Peso',
-        path: 'perdidadepeso',
+        path: '/perdidadepeso',
         icon: <FaWeightScale />,
         cName: 'nav-text'
     },
@@ -36,6 +36,12 @@ export const SidebarData = [
         title: 'Nutrición Deportiva',
         path: '/nutriciondeportiva',
         icon: <GiWeightLiftingUp />,
+        cName: 'nav-text'
+    },
+    {
+        title: 'Hábitos Alimentarios',
+        path: '/habitosalimentarios',
+        icon: <IoNutrition />,
         cName: 'nav-text'
     },
     {

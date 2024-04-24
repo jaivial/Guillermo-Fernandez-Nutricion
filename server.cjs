@@ -34,15 +34,15 @@ app.route('/send-email')
       const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'jaimebillanueba99@gmail.com',
-          pass: 'trrm wazr uyyb obkx',
+          user: 'guillermo198f@gmail.com',
+          pass: 'bwob mipt dpql oywb',
         },
       });
 
       // Rest of your email sending logic here
       const mailOptions = {
         from: email,
-        to: 'jaimebillanueba99@gmail.com',
+        to: 'guillermo198f@gmail.com',
         subject: 'Nueva consulta nutricional de: ' + nombre,
         html: `
         <head>
