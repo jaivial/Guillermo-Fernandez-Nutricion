@@ -25,11 +25,13 @@ import Image from "astro/components/Image.astro";
 		</div>
 		<div class="sectioncotainer">
 			<div class="bloque1">
-				<Image
-					src={GuilleBata2}
-					alt="Guillermo Fernández dietista nutricionista en Valencia"
-					class="sobremiprofilephoto"
-				/>
+				<div class="bloqueimage"> 
+					<Image
+						src={GuilleBata2}
+						alt="Guillermo Fernández dietista nutricionista en Valencia"
+						class="sobremiprofilephoto"
+					/>
+				</div>
 				<div class="bloquetexto">
 					<h2>Revitaliza tu salud con soluciones personalizadas 
 					</h2>
@@ -40,11 +42,13 @@ import Image from "astro/components/Image.astro";
 				</div>
 			</div>
 			<div class="bloque1" id="bloque2">
-				<Image
-					src={NutricionClinica2}
-					alt="Guillermo Fernández dietista nutricionista en Valencia"
-					class="sobremiprofilephoto"
-				/>
+				<div class="bloqueimage">
+					<Image
+						src={NutricionClinica2}
+						alt="Guillermo Fernández dietista nutricionista en Valencia"
+						class="sobremiprofilephoto"
+					/>
+				</div>
 				<div class="bloquetexto">
 					<h2>Una estrategia integral para diversas condiciones </h2>
 					<p>
@@ -54,11 +58,13 @@ import Image from "astro/components/Image.astro";
 				</div>
 			</div>
 			<div class="bloque1" id="bloque3">
-				<Image
-					src={NutricionClinica3}
-					alt="Guillermo Fernández dietista nutricionista en Valencia"
-					class="sobremiprofilephoto"
-				/>
+				<div class="bloqueimage"> 
+					<Image
+						src={NutricionClinica3}
+						alt="Guillermo Fernández dietista nutricionista en Valencia"
+						class="sobremiprofilephoto"
+					/>
+				</div>
 				<div class="bloquetexto">
 					<h2>Asesoramiento detallado y apoyo continuo 
 					</h2>
@@ -81,42 +87,42 @@ import Image from "astro/components/Image.astro";
 </Layout>
 
 <style>
-	 .appointment-button {
-        position: relative;
-        padding: 1rem 1.5rem;
-        background-color: #f37d73;
-        color: #fff;
-        cursor: pointer;
-        border-radius: 20px;
-        overflow: hidden;
-        transition:
-            transform 0.3s ease-in-out,
-            box-shadow 0.3s ease-in-out;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow for depth */
+	.appointment-button {
+		position: relative;
+		padding: 1rem 1.5rem;
+		background-color: #f37d73;
+		color: #fff;
+		cursor: pointer;
+		border-radius: 20px;
+		overflow: hidden;
+		transition:
+			transform 0.3s ease-in-out,
+			box-shadow 0.3s ease-in-out;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow for depth */
 		font-size: 18px;
-		text-align: center;
-    }
+		text-align: center
+	}
 
-    .appointment-button:hover {
-        transform: scale(1.1) rotate(0deg); /* Increase size and add slight rotation on hover */
-        box-shadow: 0 0 20px rgba(254, 249, 249, 0.5); /* Increase shadow size on hover */
-    }
+	.appointment-button:hover {
+		transform: scale(1.1) rotate(0deg); /* Increase size and add slight rotation on hover */
+		box-shadow: 0 0 20px rgba(254, 249, 249, 0.5); /* Increase shadow size on hover */
+	}
 
-    .appointment-button::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.5),
-            transparent
-        );
-        animation: shinyAnimation 2.5s infinite;
-    }
+	.appointment-button::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			rgba(255, 255, 255, 0.5),
+			transparent
+		);
+		animation: shinyAnimation 2.5s infinite;
+	}
 	.pidetucita {
 		width: 100%;
 		padding: 70px 0;
@@ -130,18 +136,25 @@ import Image from "astro/components/Image.astro";
 
 	.pidetucita h2 {
 		font-size: 25px;
-		font-family: 'Montserrat';
+		font-family: "Montserrat";
 		color: white;
 		text-align: center;
 	}
 	.pidetucita p {
 		font-size: 18px;
-		font-family: 'Montserrat';
+		font-family: "Montserrat";
 		color: white;
 		text-align: center;
 		width: 50%;
 	}
-	
+	.bloqueimage {
+		width: 40%;
+		aspect-ratio: 1 / 1;
+	}
+	.bloquetexto {
+		width: 60%;
+		height: inherit;
+	}
 	.bloquetexto p {
 		font-family: "Montserrat";
 		color: black;
@@ -153,12 +166,16 @@ import Image from "astro/components/Image.astro";
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
-		width: 70%;
+		width: 80%;
 		gap: 50px;
 		border-radius: 30px;
 		background-color: rgba(205, 112, 112, 0.15);
-		padding: 30px;
+		padding: 30px 30px;
 		text-align: center;
+	}
+
+	.bloque1 img {
+		width: 100%;
 	}
 	#bloque2 {
 		background-color: rgb(205, 112, 112, 0.27);
@@ -173,7 +190,7 @@ import Image from "astro/components/Image.astro";
 		align-items: center;
 		width: 90%;
 		padding: 80px 0 80px 0;
-		gap: 60px;
+		gap: 50px;
 	}
 	.trayectoriatitulo h2 {
 		color: white;
@@ -200,7 +217,6 @@ import Image from "astro/components/Image.astro";
 		color: #ffffff;
 		font-size: 30px;
 		margin-top: -10px;
-		text-align: center;
 	}
 	.sobremititulo h1,
 	h2 {
@@ -310,8 +326,18 @@ import Image from "astro/components/Image.astro";
 		main {
 			margin-top: 70px;
 		}
-		.bloque1, .bloqueB, .trayectoriatitulo h2 {
+		.bloque1,
+		.bloqueB,
+		.trayectoriatitulo h2 {
 			width: 100%;
+		}
+	}
+	@media screen and (max-width: 950px) {
+		.bloqueimage {
+			width: 45%;
+		}
+		.bloquetexto {
+			width: 55%;
 		}
 	}
 	@media screen and (max-width: 900px) {
@@ -335,6 +361,7 @@ import Image from "astro/components/Image.astro";
 			flex-direction: column-reverse;
 			width: 75%;
 			gap: 30px;
+			padding-bottom: 15px;
 		}
 		.bloqueB {
 			flex-direction: column;
@@ -342,31 +369,63 @@ import Image from "astro/components/Image.astro";
 			gap: 30px;
 		}
 
-		.bloque1 p, .bloqueB p {
+		.bloque1 p,
+		.bloqueB p {
 			text-align: center;
 		}
 
-		.sectioncotainer, .trayectoriaprofesional {
-			gap: 65px;
+		.sectioncotainer,
+		.trayectoriaprofesional {
+			gap: 30px;
 		}
 
 		.trayectoriatitulo h2 {
 			width: 90%;
 		}
+
+		.bloquetexto {
+			width: 100%;
+		}
+
+		.bloquetexto p {
+			text-align: justify;
+		}
+
+		.bloqueimage {
+			width: 95%;
+		}
+		.sobremititulo h2 {
+			text-align: center;
+		}
 	}
-	@media screen and (max-width: 650px) { 
-		.bloque1, .bloqueB {
+	@media screen and (max-width: 800px) {
+		.pidetucita p {
 			width: 85%;
+		}
+	}
+	@media screen and (max-width: 650px) {
+		.bloque1,
+		.bloqueB {
+			width: 90%;
+			padding: 20px 20px 10px 20px;
 		}
 		.sobremititulo p {
 			width: 100%;
 		}
 
-		.bloque1 p, .bloqueB p, .sobremititulo p {
+		.bloque1 p,
+		.bloqueB p,
+		.sobremititulo p {
+			text-align: justify;
+		}
+		.bloqueimage {
+			width: 100%;
+		}
+		.pidetucita p {
 			text-align: justify;
 		}
 	}
-	@media screen and (max-width: 600px) { 
+	@media screen and (max-width: 600px) {
 		.sobremiheader {
 			width: 90%;
 		}
@@ -379,11 +438,12 @@ import Image from "astro/components/Image.astro";
 			width: 100%;
 		}
 
-		.sectioncotainer, .trayectoriaprofesional {
+		.sectioncotainer,
+		.trayectoriaprofesional {
 			padding: 50px 0 50px 0;
 		}
-	} 
-	@media screen and (max-width: 500px) { 
+	}
+	@media screen and (max-width: 500px) {
 		.sobremiheader {
 			padding: 55px;
 		}
@@ -405,13 +465,13 @@ import Image from "astro/components/Image.astro";
 		.sobremititulo h2 {
 			font-size: 27px;
 		}
-	} 
-	@media screen and (max-width: 350px) { 
+	}
+	@media screen and (max-width: 350px) {
 		.trayectoriatitulo {
 			padding: 25px 0 25px 0;
 		}
 		.trayectoriatitulo h2 {
 			font-size: 21px;
 		}
-	} 
+	}
 </style>
