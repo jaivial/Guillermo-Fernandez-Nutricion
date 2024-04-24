@@ -107,6 +107,7 @@ export default function ContactForm() {
           <option value="Nutrición Clínica">Nutrición Clínica</option>
           <option value="Nutrición Deportiva">Nutrición Deportiva</option>
           <option value="Pérdida de Peso">Pérdida de Peso</option>
+          <option value="Hábitos Alimentarios">Hábitos Alimentarios</option>
         </select>
       </div>
 
