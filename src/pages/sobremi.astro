@@ -338,12 +338,12 @@ import Image from "astro/components/Image.astro";
 		.bloqueA {
 			flex-direction: column-reverse;
 			width: 75%;
-			gap: 30px;
+			gap: 10px;
 		}
 		.bloqueB {
 			flex-direction: column;
 			width: 75%;
-			gap: 30px;
+			gap: 10px;
 		}
 
 		.bloqueA p, .bloqueB p {
@@ -351,7 +351,7 @@ import Image from "astro/components/Image.astro";
 		}
 
 		.trayectoriaacademica, .trayectoriaprofesional {
-			gap: 65px;
+			gap: 30px;
 		}
 
 		.trayectoriatitulo h2 {
@@ -379,12 +379,30 @@ import Image from "astro/components/Image.astro";
 			width: 100%;
 		}
 
+		.sobremititulo p {
+			font-size: 15px;
+		}
+		.sobremititulo h1 {
+			font-size: 22px;
+		}
+		.sobremititulo h2 {
+			font-size: 20px;
+			margin-top: 3px;
+		}
+
 		.sobremiprofilephoto {
 			width: 100%;
 		}
 
 		.trayectoriaacademica, .trayectoriaprofesional {
 			padding: 50px 0 50px 0;
+		}
+
+		.bloqueA p, .bloqueB p  {
+			font-size: 14px;
+		}
+		.trayectoriatitulo h2 {
+			font-size: 24px;
 		}
 	} 
 	@media screen and (max-width: 500px) { 
@@ -396,19 +414,15 @@ import Image from "astro/components/Image.astro";
 			padding: 35px 0 35px 0;
 		}
 		.trayectoriatitulo h2 {
-			font-size: 24px;
+			font-size: 22px;
 		}
 
 		.sobremititulo {
 			margin: 0px;
 		}
-		.sobremititulo h1 {
-			font-size: 30px;
-		}
+	
 
-		.sobremititulo h2 {
-			font-size: 27px;
-		}
+		
 	} 
 	@media screen and (max-width: 350px) { 
 		.trayectoriatitulo {

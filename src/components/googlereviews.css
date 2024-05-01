@@ -38,22 +38,11 @@ iframe {
     width: 100%;
 }
 
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 600px) {
     .wrappertituloservicios h2 {
         font-size: 40px;
-        
-    }
- }
-
-@media screen and (max-width: 430px) {
-    .wrappertituloservicios h2 {
-        font-size: 35px;
-        
-    }
- }
-@media screen and (max-width: 380px) {
-    .wrappertituloservicios h2 {
+       }
+       .wrappertituloservicios h3 {
         font-size: 30px;
-        
-    }
+       }
  }
