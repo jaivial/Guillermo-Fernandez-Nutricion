@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $motivoConsulta = $_POST["motivoConsulta"];
     
     // Email information
-    $to = "guillermo198f@gmail.com"; // Change this to your email address
+    $to = "jaimevillalcon@hotmail.com"; // Change this to your email address
     $subject = "Nueva Consulta Nutricional";
     $message = "Nombre: $nombre\n";
     $message .= "Apellido: $apellido\n";
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     // If the form is not submitted, redirect back to the form page
-    header("Location: index.html"); // Change this to the actual filename of your form page
+    echo "not working"; // Change this to the actual filename of your form page
     exit;
 }
 ?>
