@@ -1,4 +1,3 @@
-import React from "react";
 import * as AiIcons from "react-icons/ai";
 import { FaUserDoctor } from "react-icons/fa6";
 import { IoNutrition } from "react-icons/io5";

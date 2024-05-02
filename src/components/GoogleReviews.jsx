@@ -3,16 +3,7 @@ import './googlereviews.css';
 
 // Component
 const GoogleReviews = () => {
-    const [placeDetails, setPlaceDetails] = useState(null);
-
-    useEffect(() => {
-        // You can fetch additional details or reviews based on placeDetails if needed
-        if (placeDetails) {
-            // Fetch reviews or other details using the placeDetails
-            // For example: fetchGoogleReviews(placeDetails.place_id);
-        }
-    }, [placeDetails]);
-
+   
     return (
         <div className='wrappergooglereviews'>
             <div className="wrappertituloservicios">

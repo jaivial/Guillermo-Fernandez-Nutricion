@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './contactform.css';
 import './contactoindexmediaqueries.css';
 
 export default function ContactForm() {
-
-
   const [formData, setFormData] = useState({
     nombre: '',
     apellido: '',
@@ -27,21 +25,12 @@ export default function ContactForm() {
     console.log('Form submitted:', formData);
 
     try {
-      const response = await fetch('http://62.72.32.46:5001/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      
 
-      const responseData = await response.json();
-      console.log(responseData);
-
+      // Check if the request was successful
       if (response.ok) {
-        console.log('Email sent successfully');
-        alert('Email enviado con éxito');
-        // Optionally, reset the form after successful submission
+        console.log('Form successfully submitted');
+        // Reset form after successful submission if needed
         setFormData({
           nombre: '',
           apellido: '',
@@ -50,23 +39,25 @@ export default function ContactForm() {
           telefono: '',
           motivoConsulta: '',
         });
+        alert('Email enviado con éxito');
       } else {
-        console.error('Failed to send email');
+        // Handle errors if needed
+        console.error('Failed to submit form');
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error submitting form:', error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} action='sendemail.php'>
       <div className="nombreapellidoswrapper">
         <input
           type="text"
           name="nombre"
           value={formData.nombre}
           onChange={handleChange}
-          placeholder='Nombre*'
+          placeholder="Nombre*"
           required
         />
         <input
@@ -74,17 +65,16 @@ export default function ContactForm() {
           name="apellido"
           value={formData.apellido}
           onChange={handleChange}
-          placeholder='Apellido'
+          placeholder="Apellido"
         />
       </div>
       <div className="email">
-
         <input
           type="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
-          placeholder='E-mail*'
+          placeholder="E-mail*"
           required
         />
       </div>
@@ -95,7 +85,7 @@ export default function ContactForm() {
           name="telefono"
           value={formData.telefono}
           onChange={handleChange}
-          placeholder='Teléfono'
+          placeholder="Teléfono"
         />
         <select
           name="servicio"
@@ -103,7 +93,9 @@ export default function ContactForm() {
           onChange={handleChange}
           required
         >
-          <option value="" disabled hidden>Selecciona un servicio</option>
+          <option value="" disabled hidden>
+            Selecciona un servicio
+          </option>
           <option value="Nutrición Clínica">Nutrición Clínica</option>
           <option value="Nutrición Deportiva">Nutrición Deportiva</option>
           <option value="Pérdida de Peso">Pérdida de Peso</option>
@@ -116,7 +108,7 @@ export default function ContactForm() {
           name="motivoConsulta"
           value={formData.motivoConsulta}
           onChange={handleChange}
-          placeholder='Motivo de la consulta*'
+          placeholder="Motivo de la consulta*"
         />
       </div>
 

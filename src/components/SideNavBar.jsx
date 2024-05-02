@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AiOutlineClose } from "react-icons/ai";
 import { SidebarData } from '../data/SideNavBarData';
 import { IconContext } from 'react-icons';

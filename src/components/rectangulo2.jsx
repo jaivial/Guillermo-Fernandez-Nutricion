@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import './rectangulo2.css';
 import { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
