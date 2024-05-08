@@ -13,7 +13,7 @@ import Frutasdos from "../assets/frutas2.webp";
             <h2 class="slogan">Transforma tu vida, bocado a bocado</h2>
             <h1>Guillermo Fernández de la Torre</h1>
             <h2>Dietista - Nutricionista</h2>
-            <div class="appointment-button-herosection">CONTACTAR</div>
+            <div class="appointment-button-herosection"><a href="/contacto">CONTACTAR</a></div>
         </div>    
         <div class="imagenherosection">
             <Image
@@ -191,6 +191,11 @@ import Frutasdos from "../assets/frutas2.webp";
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         z-index: 1;
         /* Added z-index property */
+    }
+
+    .appointment-button-herosection a {
+        text-decoration: none;
+        color: white;
     }
 
     .appointment-button-herosection:hover {

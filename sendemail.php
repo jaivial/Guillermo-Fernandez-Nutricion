@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $motivoConsulta = $_POST["motivoConsulta"];
     
     // Email information
-    $to = "jaimevillalcon@hotmail.com"; // Change this to your email address
+    $to = "guillermofernandeznutricion@gmail.com"; // Change this to your email address
     $subject = "Nueva Consulta Nutricional";
     $message = "Nombre: $nombre\n";
     $message .= "Apellido: $apellido\n";
@@ -20,13 +20,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message .= "Motivo de la consulta: $motivoConsulta\n";
     
     // Set additional headers
-    $headers = "From: guillermo198f@gmail.com\r\n";
+    $headers = "From: $email\r\n";
     $headers .= "Reply-To: $email\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
     
     // Send email
     if (mail($to, $subject, $message, $headers)) {
-        echo "Tu consulta ha sido enviada correctamente. Nos pondremos en contacto contigo pronto.";
+       echo '<script>alert("Email enviado con éxito.");</script>';
+    // Redirect after displaying the alert
+    echo '<script>window.location.href="/";</script>';
+        
     } else {
         echo "Hubo un error al enviar tu consulta. Por favor, inténtalo de nuevo más tarde.";
     }
