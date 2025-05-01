@@ -27,8 +27,8 @@ async function sendEmail(formData: FormData) {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "jaimebillanueba99@gmail.com",
-        pass: "cmme ztnd tgue nikz",
+        user: import.meta.env.EMAIL_USER || "jaimebillanueba99@gmail.com",
+        pass: import.meta.env.EMAIL_PASS || "cmme ztnd tgue nikz",
       },
     });
 
