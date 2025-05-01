@@ -1,0 +1,29 @@
+# Cambios para /etc/nginx/sites-available/guillermofernandeznutricion.es
+
+# Ubicación actualizada para el nuevo servidor de email
+location /send-email {
+    proxy_pass http://localhost:5002/send-email;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+}
+
+# Instrucciones para actualizar la configuración:
+# 1. Abrir el archivo de configuración de NGINX:
+#    sudo nano /etc/nginx/sites-available/guillermofernandeznutricion.es
+#
+# 2. Buscar y reemplazar/actualizar la sección "location /send-email" 
+#    con la configuración de arriba
+#
+# 3. Guardar el archivo (Ctrl+O, luego Enter, luego Ctrl+X)
+#
+# 4. Comprobar que la sintaxis de NGINX es correcta:
+#    sudo nginx -t
+#
+# 5. Si la comprobación es exitosa, recargar NGINX:
+#    sudo systemctl reload nginx 

@@ -5,7 +5,7 @@ const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002;
 
 // Middleware
 app.use(cors());
@@ -24,6 +24,68 @@ const transporter = nodemailer.createTransport({
 
 // Importar plantilla de email
 const { generateEmailTemplate } = require('./email-template');
+
+// Endpoint informativo para GET /send-email
+app.get('/send-email', (req, res) => {
+    res.send(`
+        <html>
+            <head>
+                <title>API de Email</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        line-height: 1.6;
+                        color: #333;
+                        max-width: 800px;
+                        margin: 0 auto;
+                        padding: 20px;
+                    }
+                    h1 {
+                        color: #4CAF50;
+                    }
+                    pre {
+                        background-color: #f5f5f5;
+                        padding: 15px;
+                        border-radius: 5px;
+                        overflow-x: auto;
+                    }
+                    .note {
+                        background-color: #fffde7;
+                        border-left: 4px solid #ffeb3b;
+                        padding: 10px 15px;
+                        margin: 20px 0;
+                    }
+                </style>
+            </head>
+            <body>
+                <h1>API de Email de Guillermo Fernández Nutrición</h1>
+                <p>Este es un endpoint de API para enviar emails desde el formulario de contacto.</p>
+                <div class="note">
+                    <p><strong>Nota:</strong> Este endpoint no está diseñado para ser accedido directamente desde el navegador. 
+                    Debe ser llamado desde el formulario de contacto con el método POST.</p>
+                </div>
+                <h2>Uso correcto:</h2>
+                <pre>
+fetch('/send-email', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        nombre: 'Nombre',
+        apellido: 'Apellido',
+        email: 'email@ejemplo.com',
+        servicio: 'Nutrición Clínica',
+        telefono: '123456789',
+        motivoConsulta: 'Consulta de ejemplo'
+    })
+});
+                </pre>
+                <p>Estado del servidor: <strong>Activo</strong></p>
+            </body>
+        </html>
+    `);
+});
 
 // Endpoint para enviar emails
 app.post('/send-email', async (req, res) => {

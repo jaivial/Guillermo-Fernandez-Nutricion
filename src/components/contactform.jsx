@@ -12,16 +12,49 @@ export default function ContactForm() {
     motivoConsulta: "",
   });
 
+  const [status, setStatus] = useState({
+    submitting: false,
+    success: null,
+    error: null,
+  });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
+
+    // Resetear mensajes de error/éxito al comenzar a editar después de un envío
+    if (status.success || status.error) {
+      setStatus({
+        submitting: false,
+        success: null,
+        error: null,
+      });
+    }
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+
+    // Validar formulario
+    if (!formData.nombre || !formData.email || !formData.servicio) {
+      setStatus({
+        submitting: false,
+        success: null,
+        error: "Por favor completa todos los campos obligatorios (*)",
+      });
+      return;
+    }
+
+    // Actualizar estado a "enviando"
+    setStatus({
+      submitting: true,
+      success: null,
+      error: null,
+    });
 
     try {
       const response = await fetch("/send-email", {
@@ -32,8 +65,12 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
-        console.log("Form successfully submitted");
+        console.log("Form successfully submitted:", data);
+
+        // Resetear formulario y mostrar éxito
         setFormData({
           nombre: "",
           apellido: "",
@@ -42,70 +79,43 @@ export default function ContactForm() {
           telefono: "",
           motivoConsulta: "",
         });
-        alert("Email enviado con éxito");
+
+        setStatus({
+          submitting: false,
+          success: "¡Email enviado con éxito! Nos pondremos en contacto contigo lo antes posible.",
+          error: null,
+        });
       } else {
-        throw new Error("Error al enviar el email");
+        throw new Error(data.message || "Error al enviar el email");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Error al enviar el email, inténtalo de nuevo");
+
+      setStatus({
+        submitting: false,
+        success: null,
+        error: "Error al enviar el email: " + (error.message || "Inténtalo de nuevo más tarde"),
+      });
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      {status.error && <div className="form-error-message">{status.error}</div>}
+
+      {status.success && <div className="form-success-message">{status.success}</div>}
+
       <div className="nombreapellidoswrapper">
-        <input
-          type="text"
-          name="nombre"
-          id="nombre"
-          value={formData.nombre}
-          onChange={handleChange}
-          placeholder="Nombre*"
-          autoComplete="on" // Add autocomplete attribute
-          required
-        />
-        <input
-          type="text"
-          name="apellido"
-          id="apellido"
-          value={formData.apellido}
-          onChange={handleChange}
-          placeholder="Apellido"
-          autoComplete="on" // Add autocomplete attribute
-        />
+        <input type="text" name="nombre" id="nombre" value={formData.nombre} onChange={handleChange} placeholder="Nombre*" autoComplete="on" required disabled={status.submitting} />
+        <input type="text" name="apellido" id="apellido" value={formData.apellido} onChange={handleChange} placeholder="Apellido" autoComplete="on" disabled={status.submitting} />
       </div>
       <div className="email">
-        <input
-          type="email"
-          name="email"
-          id="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="E-mail*"
-          autoComplete="on" // Add autocomplete attribute
-          required
-        />
+        <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="E-mail*" autoComplete="on" required disabled={status.submitting} />
       </div>
 
       <div className="serviciotelefonowrapper">
-        <input
-          type="tel"
-          name="telefono"
-          id="telefono"
-          value={formData.telefono}
-          onChange={handleChange}
-          placeholder="Teléfono"
-          autoComplete="on" // Add autocomplete attribute
-        />
-        <select
-          name="servicio"
-          id="servicio"
-          value={formData.servicio}
-          onChange={handleChange}
-          required
-          autoComplete="on" // Add autocomplete attribute
-        >
+        <input type="tel" name="telefono" id="telefono" value={formData.telefono} onChange={handleChange} placeholder="Teléfono" autoComplete="on" disabled={status.submitting} />
+        <select name="servicio" id="servicio" value={formData.servicio} onChange={handleChange} required autoComplete="on" disabled={status.submitting}>
           <option value="" disabled hidden>
             Selecciona un servicio
           </option>
@@ -117,17 +127,12 @@ export default function ContactForm() {
       </div>
 
       <div className="motivoconsultawrapper">
-        <textarea
-          name="motivoConsulta"
-          id="motivoConsulta"
-          value={formData.motivoConsulta}
-          onChange={handleChange}
-          placeholder="Motivo de la consulta*"
-          autoComplete="on" // Add autocomplete attribute
-        />
+        <textarea name="motivoConsulta" id="motivoConsulta" value={formData.motivoConsulta} onChange={handleChange} placeholder="Motivo de la consulta*" autoComplete="on" required disabled={status.submitting} />
       </div>
 
-      <button type="submit">Enviar</button>
+      <button type="submit" disabled={status.submitting}>
+        {status.submitting ? "Enviando..." : "Enviar"}
+      </button>
     </form>
   );
 }

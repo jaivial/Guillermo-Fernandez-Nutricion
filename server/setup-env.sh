@@ -15,7 +15,7 @@ fi
 # Crear archivo .env
 cat > .env << EOL
 # Configuración del servidor
-PORT=5001
+PORT=5002
 NODE_ENV=production
 FRONTEND_DOMAIN=https://guillermofernandeznutricion.es
 

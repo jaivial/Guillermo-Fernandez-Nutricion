@@ -46,7 +46,7 @@ Se recomienda usar un gestor de procesos como PM2:
 
 ```
 npm install -g pm2
-pm2 start index.js --name "email-server"
+pm2 start index.js --name "guillermofernandez-email-server"
 ```
 
 Para configurar el inicio automático:
@@ -62,7 +62,7 @@ Asegúrate de que tu configuración de NGINX incluya:
 
 ```nginx
 location /send-email {
-    proxy_pass http://localhost:5001/send-email;
+    proxy_pass http://localhost:5002/send-email;
     proxy_http_version 1.1;
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection 'upgrade';

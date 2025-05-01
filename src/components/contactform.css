@@ -247,3 +247,37 @@ button[type="submit"]::after {
     width: 100%;
 }
 
+.form-success-message,
+.form-error-message {
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-family: 'Montserrat';
+  font-size: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.form-success-message {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: #2e7d32;
+  border: 1px solid #2e7d32;
+}
+
+.form-error-message {
+  background-color: rgba(244, 67, 54, 0.2);
+  color: #c62828;
+  border: 1px solid #c62828;
+}
+
+button[type="submit"]:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+button[type="submit"]:disabled::after {
+  animation: none;
+}
+
