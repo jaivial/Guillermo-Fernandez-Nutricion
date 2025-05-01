@@ -21,7 +21,7 @@ app.use(cors(corsOptions));
 
 // Define a route handler for the "/send-email" endpoint
 app.route('/send-email')
-  .get((res) => {
+  .get((req, res) => {
     // Handle GET requests for /send-email
     res.send('GET request received for /send-email');
   })
