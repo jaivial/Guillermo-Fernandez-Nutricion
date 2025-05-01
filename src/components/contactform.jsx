@@ -57,7 +57,10 @@ export default function ContactForm() {
     });
 
     try {
-      const response = await fetch("/send-email", {
+      // Usar una URL absoluta para evitar problemas de redirección
+      const apiUrl = window.location.origin + "/send-email";
+
+      const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
