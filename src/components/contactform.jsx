@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import './contactform.css';
-import './contactoindexmediaqueries.css';
+import { useState } from "react";
+import "./contactform.css";
+import "./contactoindexmediaqueries.css";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
-    nombre: '',
-    apellido: '',
-    email: '',
-    servicio: 'Nutrición Clínica',
-    telefono: '',
-    motivoConsulta: '',
+    nombre: "",
+    apellido: "",
+    email: "",
+    servicio: "Nutrición Clínica",
+    telefono: "",
+    motivoConsulta: "",
   });
 
   const handleChange = (e) => {
@@ -21,27 +21,39 @@ export default function ContactForm() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-  
+    console.log("Form submitted:", formData);
+
     try {
-      console.log('Form successfully submitted');
-      setFormData({
-        nombre: '',
-        apellido: '',
-        email: '',
-        servicio: 'Nutrición Clínica',
-        telefono: '',
-        motivoConsulta: '',
+      const response = await fetch("/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-      alert('Email enviado con éxito');
+
+      if (response.ok) {
+        console.log("Form successfully submitted");
+        setFormData({
+          nombre: "",
+          apellido: "",
+          email: "",
+          servicio: "Nutrición Clínica",
+          telefono: "",
+          motivoConsulta: "",
+        });
+        alert("Email enviado con éxito");
+      } else {
+        throw new Error("Error al enviar el email");
+      }
     } catch (error) {
-      console.error('Error submitting form:', error);
-      // Handle error here, if needed
+      console.error("Error submitting form:", error);
+      alert("Error al enviar el email, inténtalo de nuevo");
     }
   };
-  
+
   return (
-    <form obnSubmit={handleSubmit} method="post" action='sendemail.php'>
+    <form onSubmit={handleSubmit}>
       <div className="nombreapellidoswrapper">
         <input
           type="text"
@@ -75,7 +87,7 @@ export default function ContactForm() {
           required
         />
       </div>
-  
+
       <div className="serviciotelefonowrapper">
         <input
           type="tel"
@@ -103,7 +115,7 @@ export default function ContactForm() {
           <option value="Hábitos Alimentarios">Hábitos Alimentarios</option>
         </select>
       </div>
-  
+
       <div className="motivoconsultawrapper">
         <textarea
           name="motivoConsulta"
@@ -114,9 +126,8 @@ export default function ContactForm() {
           autoComplete="on" // Add autocomplete attribute
         />
       </div>
-  
+
       <button type="submit">Enviar</button>
     </form>
   );
-  
-}  
+}

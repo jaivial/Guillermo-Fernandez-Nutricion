@@ -11,10 +11,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
-// CORS Configuration
+// CORS Configuration - permitir solicitudes desde cualquier origen
 const corsOptions = {
-  origin: 'http://62.72.32.46:4321', // Replace with your frontend domain
-  methods: 'POST',
+  origin: '*', // Permitir solicitudes desde cualquier origen
+  methods: ['GET', 'POST'], // Permitir métodos GET y POST
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
