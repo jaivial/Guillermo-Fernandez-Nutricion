@@ -1,0 +1,791 @@
+---
+import nodemailer from "nodemailer";
+import type { SentMessageInfo } from "nodemailer";
+
+// Define la acción del formulario
+export const prerender = false;
+
+// Función para enviar el email
+async function sendEmail(formData: FormData) {
+  const nombre = formData.get("nombre");
+  const apellido = formData.get("apellido");
+  const email = formData.get("email");
+  const servicio = formData.get("servicio");
+  const telefono = formData.get("telefono");
+  const motivoConsulta = formData.get("motivoConsulta");
+
+  // Validar campos requeridos
+  if (!nombre || !email || !servicio) {
+    return {
+      success: false,
+      message: "Por favor completa todos los campos obligatorios (*)",
+    };
+  }
+
+  try {
+    // Configurar el transporter de nodemailer
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "jaimebillanueba99@gmail.com",
+        pass: "cmme ztnd tgue nikz",
+      },
+    });
+
+    // Plantilla de email
+    const mailOptions = {
+      from: String(email),
+      to: "jaimevillalcon@hotmail.com",
+      subject: "Nueva consulta nutricional de: " + nombre,
+      html: `
+      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+      <html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Nueva consulta nutricional</title>
+      </head>
+      <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f7f7f7; color: #333;">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr>
+            <td style="padding: 20px;">
+              <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; border-radius: 8px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.1); background-color: #ffffff;">
+                <!-- CABECERA -->
+                <tr>
+                  <td align="center" bgcolor="#000000" style="padding: 20px; color: #ffffff;">
+                    <h1 style="margin: 0; font-size: 24px; font-weight: 800; text-transform: uppercase; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">Nueva Consulta Nutricional</h1>
+                    <p style="margin-top: 10px; margin-bottom: 0;">Tienes una nueva solicitud de consulta</p>
+                  </td>
+                </tr>
+                
+                <!-- CONTENIDO -->
+                <tr>
+                  <td style="padding: 20px;">
+                    <h2 style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333333; font-size: 18px;">${nombre} ${apellido} está interesado en una consulta nutricional</h2>
+                    
+                    <!-- DATOS DE CONTACTO -->
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f9f9f9; border-radius: 8px; margin-bottom: 20px;">
+                      <tr>
+                        <td style="padding: 15px;">
+                          <h3 style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333333; font-size: 16px; margin-top: 0;">Datos de contacto:</h3>
+                          
+                          <!-- NOMBRE -->
+                          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 8px;">
+                            <tr>
+                              <td width="140" style="font-weight: 700; color: #000000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">Nombre:</td>
+                              <td style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">${nombre}</td>
+                            </tr>
+                          </table>
+                          
+                          <!-- APELLIDO -->
+                          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 8px;">
+                            <tr>
+                              <td width="140" style="font-weight: 700; color: #000000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">Apellido:</td>
+                              <td style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">${apellido || "No proporcionado"}</td>
+                            </tr>
+                          </table>
+                          
+                          <!-- EMAIL -->
+                          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 8px;">
+                            <tr>
+                              <td width="140" style="font-weight: 700; color: #000000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">Email:</td>
+                              <td style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">${email}</td>
+                            </tr>
+                          </table>
+                          
+                          <!-- TELÉFONO -->
+                          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 8px;">
+                            <tr>
+                              <td width="140" style="font-weight: 700; color: #000000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">Teléfono:</td>
+                              <td style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">${telefono || "No proporcionado"}</td>
+                            </tr>
+                          </table>
+                          
+                          <!-- SERVICIO -->
+                          <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                              <td width="140" style="font-weight: 700; color: #000000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">Servicio:</td>
+                              <td style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">${servicio}</td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    
+                    <!-- MOTIVO DE CONSULTA -->
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f3f373; border-radius: 8px; margin-top: 20px;">
+                      <tr>
+                        <td style="padding: 15px;">
+                          <h3 style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #333333; font-size: 16px; margin-top: 0;">Motivo de la Consulta:</h3>
+                          <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin-bottom: 0;">${motivoConsulta || "No especificado"}</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                
+                <!-- PIE DE PÁGINA -->
+                <tr>
+                  <td align="center" bgcolor="#000000" style="padding: 15px; color: #ffffff; font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                    <p style="margin: 0;">© ${new Date().getFullYear()} Guillermo Fernández Nutrición</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </body>
+      </html>
+      `,
+    };
+
+    console.log("Intentando enviar email a:", mailOptions.to);
+
+    // Enviar el email
+    const info: SentMessageInfo = await transporter.sendMail(mailOptions);
+    console.log("Email enviado con éxito:", info.messageId);
+
+    return {
+      success: true,
+      message: "¡Email enviado con éxito! Nos pondremos en contacto contigo lo antes posible.",
+    };
+  } catch (error: any) {
+    console.error("Error al enviar email:", error);
+    return {
+      success: false,
+      message: `Error al enviar el email: ${error.message}`,
+    };
+  }
+}
+
+// Estado inicial
+let formData = {
+  nombre: "",
+  apellido: "",
+  email: "",
+  servicio: "Nutrición Clínica",
+  telefono: "",
+  motivoConsulta: "",
+};
+
+interface FormState {
+  submitting: boolean;
+  success: string | null;
+  error: string | null;
+}
+
+// Estado del formulario
+let formState: FormState = {
+  submitting: false,
+  success: null,
+  error: null,
+};
+
+// Procesar el formulario
+if (Astro.request.method === "POST") {
+  formState.submitting = true;
+
+  try {
+    const data = await Astro.request.formData();
+    const result = await sendEmail(data);
+
+    if (result.success) {
+      formState.success = result.message;
+      formState.error = null;
+      // Resetear los datos del formulario
+      formData = {
+        nombre: "",
+        apellido: "",
+        email: "",
+        servicio: "Nutrición Clínica",
+        telefono: "",
+        motivoConsulta: "",
+      };
+    } else {
+      formState.success = null;
+      formState.error = result.message;
+    }
+  } catch (error: any) {
+    console.error("Error al procesar el formulario:", error);
+    formState.success = null;
+    formState.error = `Error al procesar el formulario: ${error.message}`;
+  } finally {
+    formState.submitting = false;
+  }
+}
+---
+
+<form method="POST" class="contact-form">
+  {formState.error && <div class="form-error-message">{formState.error}</div>}
+  {formState.success && <div class="form-success-message">{formState.success}</div>}
+
+  <div class="form-container">
+    <div class="form-row nombreapellidoswrapper">
+      <div class="form-group">
+        <label for="nombre">Nombre <span class="required">*</span></label>
+        <input type="text" name="nombre" id="nombre" value={formData.nombre} placeholder="Tu nombre" autocomplete="on" required />
+        <span class="focus-border"></span>
+      </div>
+      <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" id="apellido" value={formData.apellido} placeholder="Tu apellido" autocomplete="on" />
+        <span class="focus-border"></span>
+      </div>
+    </div>
+
+    <div class="form-row email">
+      <div class="form-group full-width">
+        <label for="email">Email <span class="required">*</span></label>
+        <input type="email" name="email" id="email" value={formData.email} placeholder="tu@email.com" autocomplete="on" required />
+        <span class="focus-border"></span>
+      </div>
+    </div>
+
+    <div class="form-row serviciotelefonowrapper">
+      <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input type="tel" name="telefono" id="telefono" value={formData.telefono} placeholder="Tu número de teléfono" autocomplete="on" />
+        <span class="focus-border"></span>
+      </div>
+      <div class="form-group">
+        <label for="servicio">Servicio <span class="required">*</span></label>
+        <div class="select-wrapper">
+          <select name="servicio" id="servicio" required autocomplete="on">
+            <option value="" disabled hidden>Selecciona un servicio</option>
+            <option value="Nutrición Clínica" selected={formData.servicio === "Nutrición Clínica"}>Nutrición Clínica</option>
+            <option value="Nutrición Deportiva" selected={formData.servicio === "Nutrición Deportiva"}>Nutrición Deportiva</option>
+            <option value="Pérdida de Peso" selected={formData.servicio === "Pérdida de Peso"}>Pérdida de Peso</option>
+            <option value="Hábitos Alimentarios" selected={formData.servicio === "Hábitos Alimentarios"}>Hábitos Alimentarios</option>
+          </select>
+          <span class="select-arrow"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row motivoconsultawrapper">
+      <div class="form-group full-width">
+        <label for="motivoConsulta">Motivo de la consulta <span class="required">*</span></label>
+        <textarea name="motivoConsulta" id="motivoConsulta" placeholder="Cuéntanos brevemente el motivo de tu consulta" autocomplete="on" required>{formData.motivoConsulta}</textarea>
+        <span class="focus-border"></span>
+      </div>
+    </div>
+
+    <div class="form-row submit-row">
+      <button type="submit" class="submit-button" disabled={formState.submitting}>
+        {formState.submitting ? <span class="spinner" /> : <span class="button-text">Enviar consulta</span>}
+      </button>
+    </div>
+  </div>
+</form>
+
+<style>
+  /* Estilos mejorados para el formulario */
+  .contact-form {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .form-container {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateY(0);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .form-container::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    opacity: 0;
+    z-index: -1;
+    transform: scale(0.8);
+    transition:
+      opacity 0.5s ease,
+      transform 0.5s ease;
+    pointer-events: none;
+  }
+
+  .form-container:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .form-row {
+    display: flex;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    flex: 1;
+    min-width: 240px;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+  .form-group:hover {
+    transform: translateY(-2px);
+  }
+
+  .focus-border {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #f3f373;
+    transition: all 0.4s ease;
+    z-index: 1;
+    opacity: 0;
+    border-radius: 2px;
+  }
+
+  input:focus ~ .focus-border,
+  textarea:focus ~ .focus-border {
+    width: 100%;
+    left: 0;
+    opacity: 1;
+  }
+
+  .full-width {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    transform-origin: left;
+  }
+
+  input:focus ~ label,
+  textarea:focus ~ label,
+  select:focus ~ label {
+    color: #f3f373;
+    transform: scale(1.02);
+  }
+
+  .required {
+    color: #f3f373;
+    position: relative;
+    display: inline-block;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+  }
+
+  input,
+  select,
+  textarea {
+    width: -webkit-fill-available;
+    padding: 0.85rem 1.2rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #333;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #999;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+
+  input:focus::placeholder,
+  textarea:focus::placeholder {
+    opacity: 0.4;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #f3f373;
+    box-shadow: 0 0 0 4px rgba(243, 243, 115, 0.3);
+    background-color: white;
+    transform: translateY(-2px);
+  }
+
+  /* Hover effects for inputs */
+  input:hover,
+  select:hover,
+  textarea:hover {
+    border-color: rgba(243, 243, 115, 0.5);
+    background-color: rgba(255, 255, 255, 0.99);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+
+  /* Select styling */
+  .select-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .select-arrow {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    pointer-events: none;
+    border-left: 2px solid #666;
+    border-bottom: 2px solid #666;
+    transform: translateY(-70%) rotate(-45deg);
+    transition: all 0.3s ease;
+  }
+
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    padding-right: 40px;
+  }
+
+  select:focus + .select-arrow {
+    border-color: #f3f373;
+  }
+
+  .submit-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+
+  .submit-button {
+    position: relative;
+    padding: 1.1rem 3rem;
+    background-color: #f3f373;
+    color: black;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    box-shadow: 0 6px 15px rgba(243, 243, 115, 0.4);
+    z-index: 1;
+  }
+
+  .button-text {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+  }
+
+  .submit-button:not(:disabled):hover .button-text {
+    transform: scale(1.05);
+    letter-spacing: 0.8px;
+  }
+
+  .submit-button:not(:disabled):hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(243, 243, 115, 0.5);
+    background-color: #ffff9a;
+  }
+
+  .submit-button:not(:disabled):active {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(243, 243, 115, 0.4);
+  }
+
+  .submit-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background-color: #c8c872;
+  }
+
+  .submit-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    animation: shinyAnimation 2.5s infinite;
+    z-index: -1;
+  }
+
+  .submit-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, transparent 80%);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.5s ease;
+  }
+
+  .submit-button:not(:disabled):hover::before {
+    opacity: 1;
+  }
+
+  @keyframes shinyAnimation {
+    0% {
+      left: -100%;
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      left: 100%;
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* Spinner animado */
+  .spinner {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: #000;
+    animation: spin 0.8s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Mensajes de error y éxito */
+  .form-success-message,
+  .form-error-message {
+    width: 100%;
+    padding: 1.25rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: slideInDown 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05), transparent);
+  }
+
+  @keyframes slideInDown {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .form-success-message {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #c8ffca;
+    border: 1px solid rgba(76, 175, 80, 0.4);
+  }
+
+  .message-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: 12px;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  .form-success-message .message-icon {
+    background-color: rgba(76, 175, 80, 0.3);
+  }
+
+  .form-error-message .message-icon {
+    background-color: rgba(244, 67, 54, 0.3);
+  }
+
+  .form-success-message::before,
+  .form-error-message::before {
+    content: none;
+  }
+
+  .form-error-message {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #ffc2c2;
+    border: 1px solid rgba(244, 67, 54, 0.4);
+  }
+
+  /* Adaptaciones responsive mejoradas */
+  @media (max-width: 992px) {
+    .contact-form {
+      max-width: 90%;
+    }
+
+    .form-container {
+      padding: 2.5rem;
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    .email input {
+      width: -webkit-fill-available;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .form-container {
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-row {
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      min-width: 100%;
+    }
+
+    .submit-button {
+      min-width: 200px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-form {
+      margin: 1.5rem auto;
+      padding: 0 0.75rem;
+    }
+
+    .form-container {
+      padding: 1.5rem;
+      border-radius: 14px;
+    }
+
+    .form-row {
+      margin-bottom: 1.25rem;
+      gap: 1rem;
+    }
+
+    .submit-row {
+      margin-top: 2rem;
+    }
+
+    .submit-button {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    label {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 0.8rem 1rem;
+      font-size: 0.95rem;
+      border-radius: 10px;
+    }
+
+    .form-success-message,
+    .form-error-message {
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  /* Nuevas adaptaciones para dispositivos muy pequeños */
+  @media (max-width: 380px) {
+    .form-container {
+      padding: 1.25rem;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 0.7rem 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    .submit-button {
+      padding: 0.9rem;
+      font-size: 0.95rem;
+    }
+  }
+</style>

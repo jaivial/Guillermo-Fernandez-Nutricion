@@ -51,10 +51,9 @@ form {
     color: black;
     border-radius: 8px;
     margin-top: 12px;
-    width: 100%;
     font-family: 'Montserrat';
     font-size: 16px;
-    width: 100%;
+    width: -webkit-fill-available;
 }
 
 

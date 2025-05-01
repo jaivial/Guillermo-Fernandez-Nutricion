@@ -1,79 +1,243 @@
 ---
 import DottedLine from "../assets/dottedline.png";
 import WhatsapIconWhite from "../assets/whitewhatsapp.png";
-import { Image } from 'astro:assets';
-import ContactForm from "./contactform.jsx";
+import { Image } from "astro:assets";
+import ContactForm from "./ContactForm.astro";
 import "./contactoindexmediaqueries.css";
 ---
 
 <div class="contactoindexwrapper">
-    <div class="titulocontactoindex">
-        <h2>Contacto</h2>
-        <h3>
-            ¿Preparado para iniciar tu viaje hacia una salud y nutrición
-            optimizadas?
-        </h3>
+  <div class="titulocontactoindex">
+    <h2>Contacto</h2>
+    <h3>¿Preparado para iniciar tu viaje hacia una salud y nutrición optimizadas?</h3>
+  </div>
+
+  <ContactForm />
+
+  <div class="whatsappwrapper">
+    <h2>Envíame un WhatsApp</h2>
+    <div class="whatsapp-container">
+      <a href={"https://wa.me/34681059411"} class="whatsapp-button">
+        <Image src={WhatsapIconWhite} class="whatsappiconcontacto" alt="WhatsApp de Guillermo Fernández dietista nutricionista en Valencia" />
+        <span class="whatsapp-text">Contactar por WhatsApp</span>
+      </a>
     </div>
-
-    <ContactForm />
-
-    <Image
-        src={DottedLine}
-        class="dottedline"
-        alt="Guillermo Fernández dietista nutricionista en Valencia"
-    />
-
-    <div class="whatsappwrapper">
-        <h2>Envíame un WhatsApp</h2>
-        <div class="imageneswhatsappwrapper">
-            <a href={"https://wa.me/34681059411"}>
-                <Image
-                    src={WhatsapIconWhite}
-                    class="whatsappiconcontacto"
-                    alt="Guillermo Fernández dietista nutricionista en Valencia"
-                />
-            </a>
-        </div>
-    </div>
+  </div>
 </div>
 
 <style>
-    .contactoindexwrapper {
-        background: rgb(0, 0, 0);
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        overflow-x: hidden;
-        padding-bottom: 90px;
+  .contactoindexwrapper {
+    background: rgb(0, 0, 0);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: hidden;
+    padding-bottom: 90px;
+  }
+
+  .titulocontactoindex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+  }
+
+  .titulocontactoindex h2 {
+    font-size: 60px;
+    font-weight: 800;
+    font-family: "Montserrat";
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    text-shadow: 2px 1px 10px black;
+    margin: 30px 0 0 0;
+  }
+
+  .titulocontactoindex h3 {
+    font-size: 35px;
+    font-weight: 400;
+    font-family: "Montserrat";
+    color: rgb(255, 255, 255);
+    margin: 30px 0 30px 0;
+  }
+
+  .whatsappwrapper {
+    width: 95%;
+    max-width: 800px;
+    margin: 3rem auto;
+    text-align: center;
+  }
+
+  .whatsappwrapper h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: white;
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .whatsappwrapper h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #f3f373;
+    border-radius: 3px;
+  }
+
+  .whatsapp-container {
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    margin: 2rem auto;
+    max-width: 400px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateY(0);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .whatsapp-container::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    opacity: 0;
+    z-index: -1;
+    transform: scale(0.8);
+    transition:
+      opacity 0.5s ease,
+      transform 0.5s ease;
+    pointer-events: none;
+  }
+
+  .whatsapp-container:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .whatsapp-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .whatsapp-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.5);
+    background-color: #22c75f;
+  }
+
+  .whatsapp-button:active {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+  }
+
+  .whatsapp-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    animation: shinyAnimation 2.5s infinite;
+    z-index: -1;
+  }
+
+  .whatsappiconcontacto {
+    width: 28px;
+    height: 28px;
+    margin-right: 12px;
+    transition: transform 0.3s ease;
+  }
+
+  .whatsapp-button:hover .whatsappiconcontacto {
+    transform: scale(1.1) rotate(10deg);
+  }
+
+  .whatsapp-text {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+  }
+
+  .whatsapp-button:hover .whatsapp-text {
+    transform: scale(1.05);
+    letter-spacing: 0.5px;
+  }
+
+  @keyframes shinyAnimation {
+    0% {
+      left: -100%;
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      left: 100%;
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .whatsappwrapper {
+      margin: 2rem auto;
     }
 
-    .titulocontactoindex {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding-top: 10px;
+    .whatsapp-container {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .whatsappwrapper h2 {
+      font-size: 1.5rem;
     }
 
-    .titulocontactoindex h2 {
-        font-size: 60px;
-        font-weight: 800;
-        font-family: "Montserrat";
-        color: rgb(255, 255, 255);
-        text-transform: uppercase;
-        text-shadow: 2px 1px 10px black;
-        margin: 30px 0 0 0;
+    .whatsapp-container {
+      padding: 1.25rem;
     }
 
-    .titulocontactoindex h3 {
-        font-size: 35px;
-        font-weight: 400;
-        font-family: "Montserrat";
-        color: rgb(255, 255, 255);
-        margin: 30px 0 30px 0;
+    .whatsapp-button {
+      padding: 0.9rem 1.5rem;
+      font-size: 1rem;
     }
-
-
+  }
 </style>

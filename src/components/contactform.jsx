@@ -36,7 +36,9 @@ export default function ContactForm() {
   };
 
   const handleSubmit = async (e) => {
+    // Prevenir el comportamiento predeterminado del formulario (navegación)
     e.preventDefault();
+
     console.log("Form submitted:", formData);
 
     // Validar formulario
@@ -57,47 +59,83 @@ export default function ContactForm() {
     });
 
     try {
-      // Usar una URL absoluta para evitar problemas de redirección
-      const apiUrl = window.location.origin + "/send-email";
+      // URL directa al servidor de email (puerto 5002)
+      const apiUrl = "http://localhost:5002/send-email";
 
+      console.log("Enviando datos al servidor:", apiUrl);
+
+      // Usar fetch con modo no-cors como fallback si es necesario
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
+        credentials: "omit", // No enviar cookies
+        mode: "cors", // Intentar con cors primero
+        cache: "no-cache", // No usar caché
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      console.log("Respuesta del servidor:", response.status);
 
-      if (response.ok) {
-        console.log("Form successfully submitted:", data);
-
-        // Resetear formulario y mostrar éxito
-        setFormData({
-          nombre: "",
-          apellido: "",
-          email: "",
-          servicio: "Nutrición Clínica",
-          telefono: "",
-          motivoConsulta: "",
-        });
-
-        setStatus({
-          submitting: false,
-          success: "¡Email enviado con éxito! Nos pondremos en contacto contigo lo antes posible.",
-          error: null,
-        });
-      } else {
-        throw new Error(data.message || "Error al enviar el email");
+      // Verificar la respuesta HTTP, incluso si no es JSON
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("Error en la respuesta del servidor:", response.status, errorText);
+        throw new Error(`Error del servidor: ${response.status} ${errorText}`);
       }
+
+      // Intentar parsear como JSON, pero manejar cualquier error
+      let data;
+      try {
+        data = await response.json();
+        console.log("Datos de respuesta:", data);
+      } catch (parseError) {
+        console.error("Error al parsear la respuesta como JSON:", parseError);
+        // Si no podemos parsear como JSON pero la respuesta fue OK, asumimos éxito
+        if (response.ok) {
+          data = { message: "Email enviado con éxito" };
+        } else {
+          throw new Error("Error al procesar la respuesta del servidor");
+        }
+      }
+
+      console.log("Form successfully submitted:", data);
+
+      // Resetear formulario y mostrar éxito
+      setFormData({
+        nombre: "",
+        apellido: "",
+        email: "",
+        servicio: "Nutrición Clínica",
+        telefono: "",
+        motivoConsulta: "",
+      });
+
+      setStatus({
+        submitting: false,
+        success: "¡Email enviado con éxito! Nos pondremos en contacto contigo lo antes posible.",
+        error: null,
+      });
     } catch (error) {
       console.error("Error submitting form:", error);
+
+      // Mensaje de error más informativo
+      let errorMsg = "Error al enviar el email: ";
+
+      if (error.message && error.message.includes("Failed to fetch")) {
+        errorMsg += "No se pudo conectar con el servidor. Asegúrate de que el servidor está funcionando en el puerto 5002.";
+      } else if (error.message) {
+        errorMsg += error.message;
+      } else {
+        errorMsg += "Inténtalo de nuevo más tarde";
+      }
 
       setStatus({
         submitting: false,
         success: null,
-        error: "Error al enviar el email: " + (error.message || "Inténtalo de nuevo más tarde"),
+        error: errorMsg,
       });
     }
   };

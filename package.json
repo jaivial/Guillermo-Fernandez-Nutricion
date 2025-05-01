@@ -19,7 +19,7 @@
     "cors": "^2.8.5",
     "express": "^4.19.1",
     "framer-motion": "^11.0.13",
-    "nodemailer": "^6.9.13",
+    "nodemailer": "^6.10.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-google-places-autocomplete": "^4.0.1",
@@ -30,6 +30,7 @@
     "typescript": "^5.4.2"
   },
   "devDependencies": {
-    "@iconify-json/mdi": "^1.1.64"
+    "@iconify-json/mdi": "^1.1.64",
+    "@types/nodemailer": "^6.4.17"
   }
 }
