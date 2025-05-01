@@ -62,7 +62,7 @@ app.route('/send-email')
         service: 'gmail',
         auth: {
           user: 'jaimebillanueba99@gmail.com',
-          pass: 'cmme ztnd tgue nikz',
+          pass: 'eige ancv djji emis',
         },
       });
 
