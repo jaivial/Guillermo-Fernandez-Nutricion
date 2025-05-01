@@ -16,18 +16,20 @@ fi
 cat > .env << EOL
 # Configuración del servidor
 PORT=5001
+NODE_ENV=production
+FRONTEND_DOMAIN=https://guillermofernandeznutricion.es
 
-# Configuración de email
-EMAIL_HOST=smtp.example.com
+# Configuración de email (Gmail)
+EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
 EMAIL_SECURE=false
-EMAIL_USER=tu_email@example.com
-EMAIL_PASS=tu_contraseña
-EMAIL_TO=destinatario@example.com
+EMAIL_USER=guillermo198f@gmail.com
+EMAIL_PASS=bwob mipt dpql oywb
+EMAIL_TO=jaimevillalcon@hotmail.com
 EOL
 
-echo "Archivo .env creado correctamente."
-echo "Por favor, edita el archivo con tus credenciales reales:"
+echo "Archivo .env creado correctamente con tus credenciales de Gmail."
+echo "Si necesitas editar el archivo:"
 echo "nano .env"
 
 # Dar permisos de ejecución
