@@ -59,8 +59,8 @@ guillermo-fernandez-nutricion/
 
 1. Clonar el repositorio:
    ```bash
-   git clone https://github.com/jaivial/astrowebsite.git
-   cd astrowebsite
+   https://github.com/jaivial/Guillermo-Fernandez-Nutricion.git
+   cd Guillermo-Fernandez-Nutricion
    ```
 
 2. Instalar dependencias:
