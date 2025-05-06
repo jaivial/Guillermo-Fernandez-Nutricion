@@ -1,54 +1,115 @@
-# Astro Starter Kit: Basics
+# 🥗 Guillermo Fernandez Nutrición
 
-```sh
-npm create astro@latest -- --template basics
+![Guillermo Fernandez Nutrición](https://guillermofernandeznutricion.es/assets/opengraph.jpg)
+
+## 📋 Descripción
+
+Web profesional para Guillermo Fernández, nutricionista colegiado, diseñada para aumentar la captación de clientes y facilitar el primer contacto a través de consultas online. La web presenta sus servicios de nutrición especializada, permite solicitar información o agendar consultas, y muestra la formación profesional del nutricionista de manera atractiva y accesible.
+
+🔗 **[Ver sitio en vivo](https://guillermofernandeznutricion.es/)**
+
+## ✨ Características principales
+
+### 📱 Diseño responsivo
+- Adaptable a dispositivos de escritorio, tablets y móviles
+- Interfaz limpia e intuitiva con un diseño profesional enfocado en salud
+
+### 🔍 Servicios nutricionales especializados
+- Presentación detallada de servicios: Nutrición Clínica, Pérdida de Peso, Nutrición Deportiva y Hábitos Alimentarios
+- Secciones con descripciones claras y llamadas a la acción estratégicamente ubicadas
+
+### ✉️ Sistema de consulta online
+- Formulario de contacto personalizado para captación de nuevos clientes
+- Campos específicos para el motivo de consulta y tipo de servicio requerido
+
+### 👨‍⚕️ Sección profesional
+- Presentación detallada sobre formación, experiencia y enfoque profesional
+- Sección de credenciales para generar confianza en los visitantes
+
+## 🛠️ Tecnologías utilizadas
+
+- **Frontend:** HTML, JavaScript, CSS, Astro
+- **Backend:** Express.js (para manejo del formulario de contacto)
+- **Servidor:** Nginx
+- **Otras herramientas:** Responsive Design, Optimización SEO
+
+## 🗂️ Estructura del proyecto
+
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
+guillermo-fernandez-nutricion/
+├── public/                 # Archivos estáticos
 ├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── assets/             # Imágenes y medios
+│   ├── components/         # Componentes reutilizables
+│   ├── layouts/            # Plantillas de página
+│   ├── pages/              # Páginas de la aplicación
+│   └── styles/             # Estilos CSS
+├── astro.config.mjs        # Configuración de Astro
+├── package.json            # Dependencias y scripts
+└── README.md               # Este archivo
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🚀 Instalación y puesta en marcha
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Prerrequisitos
+- Node.js (versión 16 o superior)
+- npm o yarn
 
-Any static assets, like images, can be placed in the `public/` directory.
+### Pasos para instalación
 
-## 🧞 Commands
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/jaivial/astrowebsite.git
+   cd astrowebsite
+   ```
 
-All commands are run from the root of the project, from a terminal:
+2. Instalar dependencias:
+   ```bash
+   npm install
+   # o
+   yarn install
+   ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+3. Iniciar entorno de desarrollo:
+   ```bash
+   npm run dev
+   # o
+   yarn dev
+   ```
 
-## 👀 Want to learn more?
+4. Compilar para producción:
+   ```bash
+   npm run build
+   # o
+   yarn build
+   ```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📸 Capturas de pantalla
+
+<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+  <img src="src/assets/images/guilleromofernandeznutricion/guille1.jpg" width="400" alt="Servicios Nutricionales Especializados" />
+  <img src="src/assets/images/guilleromofernandeznutricion/guille2.jpg" width="400" alt="Solicitud de Consulta Online" />
+  <img src="src/assets/images/guilleromofernandeznutricion/guille3.jpg" width="400" alt="Presentación Profesional del Nutricionista" />
+</div>
+
+## ✅ SEO y rendimiento
+
+El sitio web ha sido optimizado para motores de búsqueda con:
+- Metadatos adecuados
+- Estructura semántica
+- Optimización de imágenes
+- Tiempos de carga rápidos
+
+## 👨‍💻 Créditos
+
+- **Diseño y desarrollo:** Jaime Villanueva
+- **Fotos y contenido creativo:** Jaime Villanueva
+- **Cliente:** Guillermo Fernández, Nutricionista Colegiado
+
+## 📄 Licencia
+
+Este proyecto está licenciado bajo términos privados acordados con el cliente.
+
+---
+
+© 2023 Jaime Digital Studios
